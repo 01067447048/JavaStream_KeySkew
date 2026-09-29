@@ -1,10 +1,10 @@
-Tue Sep 29 10:34:23 UTC 2026
+Tue Sep 29 11:43:56 UTC 2026
 Darwin MacBook-Pro.local 25.6.0 Darwin Kernel Version 25.6.0: Fri Jul 31 19:16:20 PDT 2026; root:xnu-12377.161.14~5/RELEASE_ARM64_T8142 arm64
 openjdk version "25.0.4.1" 2026-08-18 LTS
 OpenJDK Runtime Environment Temurin-25.0.4.1+1 (build 25.0.4.1+1-LTS)
 OpenJDK 64-Bit Server VM Temurin-25.0.4.1+1 (build 25.0.4.1+1-LTS, mixed mode, sharing)
-Mode: smoke
-Additional arguments: '' 
+Mode: full
+Additional arguments: -p size=100000 -p cardinality=64 
 2f537d2049e6975391017ad69cd352da56e5490c3113761200d233bac01f5599  src/main/java/research/skew/AggregationBenchmark.java
 05d18ddfe4193bc9090ad08dc0ec54dc93a37f589b15d57dffe63b433f06636c  src/main/java/research/skew/Validation.java
 f85c039778cf68b81b255355aa86b43f611f57ecf111ca74f221481e7085f448  src/main/java/research/skew/Workload.java

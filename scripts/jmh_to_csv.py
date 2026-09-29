@@ -5,8 +5,10 @@ Uses only the Python standard library, so run.sh can call it after every run.
 
     python3 scripts/jmh_to_csv.py results/full-20260930T010203Z.AbCdEf
 
-summary.csv: one row per (method, size, cardinality, distribution, seed).
-raw.csv:     one row per measured iteration (fork x iteration), for time and allocation.
+summary.csv:   one row per (method, size, cardinality, distribution, seed).
+raw.csv:       one row per measured iteration (fork x iteration), for time and allocation.
+secondary.csv: every secondary metric JMH reported (gc.*, and perfnorm counters
+               such as cycles or L1-dcache-load-misses when -prof perfnorm is used).
 """
 import csv
 import json
@@ -23,6 +25,10 @@ SUMMARY_FIELDS = [
     "forks", "warmup_iterations", "warmup_time",
     "measurement_iterations", "measurement_time", "threads",
     "pool_parallelism", "jvm_args", "jdk_version", "vm_version", "jmh_version",
+]
+SECONDARY_FIELDS = [
+    "run", "method", "size", "cardinality", "distribution", "seed",
+    "metric", "unit", "score", "error",
 ]
 RAW_FIELDS = [
     "run", "method", "size", "cardinality", "distribution", "seed",
@@ -47,14 +53,14 @@ def _pool_parallelism(jvm_args):
 
 
 def convert(run_dir):
-    """Return (summary_rows, raw_rows) for the jmh.json inside run_dir."""
+    """Return (summary_rows, raw_rows, secondary_rows) for run_dir/jmh.json."""
     run_dir = Path(run_dir)
     json_path = run_dir / "jmh.json"
     if not json_path.is_file() or json_path.stat().st_size == 0:
         raise FileNotFoundError(f"No JMH result: {json_path}")
     results = json.loads(json_path.read_text(encoding="utf-8"))
 
-    summary, raw = [], []
+    summary, raw, extra = [], [], []
     for result in results:
         params = result.get("params", {})
         common = {
@@ -98,6 +104,11 @@ def convert(run_dir):
             "jmh_version": result.get("jmhVersion", ""),
         })
 
+        for name, metric in sorted(secondary.items()):
+            extra.append({**common, "metric": name, "unit": metric.get("scoreUnit", ""),
+                          "score": _num(metric.get("score")),
+                          "error": _num(metric.get("scoreError"))})
+
         for metric, unit, data in (
             ("time", "ms/op", primary.get("rawData", [])),
             ("alloc", "B/op", alloc.get("rawData", [])),
@@ -107,7 +118,7 @@ def convert(run_dir):
                     raw.append({**common, "metric": metric, "unit": unit,
                                 "fork": fork_index, "iteration": iteration,
                                 "value": _num(value)})
-    return summary, raw
+    return summary, raw, extra
 
 
 def write_csv(path, fields, rows):
@@ -122,11 +133,12 @@ def main(argv):
         print("Usage: python3 scripts/jmh_to_csv.py results/<run-folder>", file=sys.stderr)
         return 2
     run_dir = Path(argv[1])
-    summary, raw = convert(run_dir)
+    summary, raw, extra = convert(run_dir)
     write_csv(run_dir / "summary.csv", SUMMARY_FIELDS, summary)
     write_csv(run_dir / "raw.csv", RAW_FIELDS, raw)
+    write_csv(run_dir / "secondary.csv", SECONDARY_FIELDS, extra)
     print(f"CSV: {run_dir / 'summary.csv'} ({len(summary)} rows), "
-          f"{run_dir / 'raw.csv'} ({len(raw)} rows)")
+          f"raw.csv ({len(raw)} rows), secondary.csv ({len(extra)} rows)")
     return 0
 
 

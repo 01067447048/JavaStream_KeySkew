@@ -1,0 +1,20 @@
+| size | cardinality | distribution | seed | fastest | fastest_ms | runner_up | runner_up_ms | speedup_vs_runner_up | verdict |
+|---|---|---|---|---|---|---|---|---|---|
+| 100000 | 64 | uniform | 20260929 | parallelMerge | 0.1599 | sequential | 0.5119 | 3.20 | parallelMerge |
+| 100000 | 64 | hot50 | 20260929 | parallelMerge | 0.1672 | sequential | 0.509 | 3.04 | parallelMerge |
+| 100000 | 64 | hot90 | 20260929 | parallelMerge | 0.1672 | sequential | 0.5123 | 3.06 | parallelMerge |
+| 10000 | 256 | uniform | 20260929 | parallelMerge | 0.0493 | sequential | 0.06365 | 1.29 | parallelMerge |
+| 10000 | 256 | hot50 | 20260929 | parallelMerge | 0.04718 | sequential | 0.0739 | 1.57 | parallelMerge |
+| 10000 | 256 | hot90 | 20260929 | parallelMerge | 0.04215 | sequential | 0.07062 | 1.68 | parallelMerge |
+| 100000 | 256 | uniform | 20260929 | parallelMerge | 0.1855 | sequential | 0.5127 | 2.76 | parallelMerge |
+| 100000 | 256 | hot50 | 20260929 | parallelMerge | 0.1918 | sequential | 0.5123 | 2.67 | parallelMerge |
+| 100000 | 256 | hot90 | 20260929 | parallelMerge | 0.1896 | sequential | 0.5165 | 2.72 | parallelMerge |
+| 1000000 | 256 | uniform | 20260929 | parallelMerge | 1.805 | sequential | 5.128 | 2.84 | parallelMerge |
+| 1000000 | 256 | hot50 | 20260929 | parallelMerge | 1.472 | sequential | 5.467 | 3.71 | parallelMerge |
+| 1000000 | 256 | hot90 | 20260929 | parallelMerge | 1.577 | sequential | 5.414 | 3.43 | parallelMerge |
+| 100000 | 8192 | uniform | 20260929 | sequential | 0.8671 | parallelMerge | 1.154 | 1.33 | sequential |
+| 100000 | 8192 | hot50 | 20260929 | sequential | 0.8205 | parallelMerge | 0.9538 | 1.16 | sequential |
+| 100000 | 8192 | hot90 | 20260929 | parallelMerge | 0.4202 | sequential | 0.7231 | 1.72 | parallelMerge |
+| 100000 | 256 | uniform | 20260930 | parallelMerge | 0.1841 | sequential | 0.5188 | 2.82 | parallelMerge |
+| 100000 | 256 | hot50 | 20260930 | parallelMerge | 0.1868 | sequential | 0.5168 | 2.77 | parallelMerge |
+| 100000 | 256 | hot90 | 20260930 | parallelMerge | 0.1963 | sequential | 0.5179 | 2.64 | parallelMerge |

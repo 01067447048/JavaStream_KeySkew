@@ -12,8 +12,10 @@ if [[ ! -f build/classes/META-INF/BenchmarkList ]]; then
     printf '%s\n' 'First run: bash build.sh' >&2
     exit 1
 fi
-mkdir -p results
-output_dir="$(mktemp -d "results/${mode}-$(date -u +%Y%m%dT%H%M%SZ).XXXXXX")"
+# RESULTS_DIR keeps runs from different machines apart (default: results).
+results_root="${RESULTS_DIR:-results}"
+mkdir -p "$results_root"
+output_dir="$(mktemp -d "${results_root}/${mode}-$(date -u +%Y%m%dT%H%M%SZ).XXXXXX")"
 {
     date -u
     uname -a
@@ -22,10 +24,20 @@ output_dir="$(mktemp -d "results/${mode}-$(date -u +%Y%m%dT%H%M%SZ).XXXXXX")"
     printf 'Additional arguments: '; printf '%q ' "$@"; printf '\n'
     if command -v shasum >/dev/null 2>&1; then
         shasum -a 256 src/main/java/research/skew/*.java .deps/*.jar
+    elif command -v sha256sum >/dev/null 2>&1; then
+        sha256sum src/main/java/research/skew/*.java .deps/*.jar
     fi
     if [[ "$(uname -s)" == Darwin ]]; then
         /usr/sbin/sysctl machdep.cpu.brand_string hw.physicalcpu hw.logicalcpu hw.memsize || true
         /usr/bin/sw_vers
+    elif [[ "$(uname -s)" == Linux ]]; then
+        grep PRETTY_NAME /etc/os-release || true
+        lscpu || true
+        free -h || true
+        printf 'CPU affinity: '; taskset -pc $$ 2>/dev/null || printf 'unknown\n'
+        printf 'nproc: '; nproc
+        printf 'Governor: '; sort /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor 2>/dev/null | uniq -c | tr '\n' ' '; printf '\n'
+        printf 'intel_pstate no_turbo: '; cat /sys/devices/system/cpu/intel_pstate/no_turbo 2>/dev/null || printf 'n/a\n'
     fi
 } > "$output_dir/environment.txt" 2>&1
 java -cp 'build/classes:.deps/*' org.openjdk.jmh.Main \

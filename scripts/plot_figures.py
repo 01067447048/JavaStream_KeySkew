@@ -91,7 +91,7 @@ def load_rows(results_dir, include_smoke):
                 with open(summary, newline="", encoding="utf-8") as f:
                     run_rows = list(csv.DictReader(f))
             else:  # runs made before run.sh wrote CSV
-                run_rows, _ = jmh_to_csv.convert(run_dir)
+                run_rows, _, _ = jmh_to_csv.convert(run_dir)
         except FileNotFoundError:
             print(f"skip {run_dir.name}: no jmh.json (failed run?)", file=sys.stderr)
             continue

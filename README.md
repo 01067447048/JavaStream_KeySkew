@@ -10,6 +10,7 @@
 - `check.sh`: 외부 의존성 없이 정확성 검사.
 - `build.sh`: 실험 폴더 안으로 필요한 네 라이브러리를 내려받고 빌드.
 - `run.sh`: 동작 확인 또는 본 측정. 실행마다 새로운 결과 폴더를 생성.
+- `run_envB.sh`: 환경 B(Ubuntu, Intel i5-8250U)용 전체 실행 스크립트. 사전 점검, 정확성 검사, 빌드, 본 측정 4회, 선택적 perf 계측, 결과 묶기를 한 번에 수행. 결과는 `results-envB/`에 따로 저장. 사용법은 `환경B용실험안내서.md`.
 - `scripts/jmh_to_csv.py`: 결과 폴더의 `jmh.json`을 `summary.csv`·`raw.csv`로 변환. `run.sh`가 매 실행 후 자동 호출.
 - `scripts/plot_figures.py`: 모든 본 측정 결과를 모아 논문 그림 3개와 선택 기준 표 생성.
 - `requirements.txt`: 그림 스크립트용 Python 패키지(matplotlib).
@@ -133,4 +134,7 @@ java -jar target/benchmarks.jar -foe true -prof gc -rf json -rff measured-result
 - 2026-09-29: K=8192 추가 검증 조건 추가. `Validation.java`의 검사 대상이 36개에서 48개 입력으로 늘었으며, JDK 25에서 아직 실행하지 않음.
 - 2026-09-29: CSV 자동 저장과 그림 스크립트 추가. CSV 변환은 기존 smoke 결과의 복사본으로 동작을 확인함(6개 조건, 원시값 12개). `run.sh` 안에서의 자동 호출은 실제 측정으로 아직 실행하지 않음.
 - 2026-09-29: `.venv`에 matplotlib 3.11.2 설치. 그림 스크립트는 프로젝트 밖 임시 폴더에서 **가짜 수치**로 배치(글자 겹침, 눈금, 범례)만 확인함. 실제 측정 그림은 아직 없음.
+- 2026-09-29 20:05: 새로 측정하기 위해 기존 `results/` 폴더(smoke 결과 3개)를 휴지통으로 옮김(`~/.Trash/JavaStream_키편향-results-20260929-200544`). 위 기록에 나오는 smoke 폴더는 더 이상 프로젝트 안에 없다.
+- 2026-09-29: 환경 B 준비. `run.sh`에 `RESULTS_DIR`(결과 폴더 지정)과 Linux 환경 기록(`lscpu`, `free -h`, CPU 고정 상태, 주파수 정책, 터보 상태) 추가. `jmh_to_csv.py`가 모든 보조 지표를 `secondary.csv`로도 저장. `run_envB.sh`는 macOS에서 문법 검사만 했으며 Linux에서는 아직 실행하지 않음.
+- 환경 B 결과로 그림을 만들 때: `.venv/bin/python scripts/plot_figures.py --results results-envB --out figures-envB`. 환경 A와 B의 결과를 한 폴더에 섞지 않는다.
 - 장비의 코어 구성: 성능 코어 4개와 효율 코어 6개(`sysctl hw.perflevel0.physicalcpu`, `hw.perflevel1.physicalcpu`). 공용 풀 병렬성 3과 호출 스레드 1개를 합치면 4로, 성능 코어 수와 같다. macOS에서는 스레드를 특정 코어에 고정할 수 없으므로 효율 코어에서 실행될 가능성은 남는다.
