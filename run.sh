@@ -14,6 +14,8 @@ if [[ ! -f build/classes/META-INF/BenchmarkList ]]; then
 fi
 # RESULTS_DIR keeps runs from different machines apart (default: results).
 results_root="${RESULTS_DIR:-results}"
+# BENCH selects benchmark methods by regex (default: all four).
+bench="${BENCH:-research.skew.AggregationBenchmark.*}"
 mkdir -p "$results_root"
 output_dir="$(mktemp -d "${results_root}/${mode}-$(date -u +%Y%m%dT%H%M%SZ).XXXXXX")"
 {
@@ -21,6 +23,7 @@ output_dir="$(mktemp -d "${results_root}/${mode}-$(date -u +%Y%m%dT%H%M%SZ).XXXX
     uname -a
     java -version
     printf 'Mode: %s\n' "$mode"
+    printf 'Benchmarks: %s\n' "$bench"
     printf 'Additional arguments: '; printf '%q ' "$@"; printf '\n'
     if command -v shasum >/dev/null 2>&1; then
         shasum -a 256 src/main/java/research/skew/*.java .deps/*.jar
@@ -41,7 +44,7 @@ output_dir="$(mktemp -d "${results_root}/${mode}-$(date -u +%Y%m%dT%H%M%SZ).XXXX
     fi
 } > "$output_dir/environment.txt" 2>&1
 java -cp 'build/classes:.deps/*' org.openjdk.jmh.Main \
-    'research.skew.AggregationBenchmark.*' \
+    "$bench" \
     -foe true -prof gc -rf json -rff "$output_dir/jmh.json" ${settings[@]+"${settings[@]}"} "$@" \
     2>&1 | tee "$output_dir/console.log"
 if command -v python3 >/dev/null 2>&1; then

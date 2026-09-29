@@ -4,13 +4,14 @@
 
 ## 파일
 
-- `src/main/java/research/skew/Workload.java`: 정확한 빈도·고정 고유 키 수의 입력 생성기와 세 집계 구현.
+- `src/main/java/research/skew/Workload.java`: 정확한 빈도·고정 고유 키 수의 입력 생성기와 네 집계 구현(기본 3개 + LongAdder 대조군 1개).
 - `src/main/java/research/skew/Validation.java`: 입력 분포, 재현성, 모든 키의 집계 결과 검증.
 - `src/main/java/research/skew/AggregationBenchmark.java`: JMH(Java Microbenchmark Harness; 자바 성능 측정 도구) 설정과 측정 코드.
 - `check.sh`: 외부 의존성 없이 정확성 검사.
 - `build.sh`: 실험 폴더 안으로 필요한 네 라이브러리를 내려받고 빌드.
 - `run.sh`: 동작 확인 또는 본 측정. 실행마다 새로운 결과 폴더를 생성.
-- `run_envB.sh`: 환경 B(Ubuntu, Intel i5-8250U)용 전체 실행 스크립트. 사전 점검, 정확성 검사, 빌드, 본 측정 4회, 선택적 perf 계측, 결과 묶기를 한 번에 수행. 결과는 `results-envB/`에 따로 저장. 사용법은 `환경B용실험안내서.md`.
+- `run_envB.sh`: 환경 B(Ubuntu, Intel i5-8250U)용 전체 실행 스크립트. 사전 점검, 정확성 검사, 빌드, 본 측정 4회, N/K 경계 검증 2회, 선택적 perf 계측, 결과 묶기를 한 번에 수행. 결과는 `results-envB/`에 따로 저장. 사용법은 `환경B용실험안내서.md`.
+- `run_envA_extra.sh`: 환경 A(이 Mac)에서 보편성 추가 실험만 실행. LongAdder 대조군과 N/K 경계 실험을 측정하고 그림을 다시 만든다. 기존 `results/`는 그대로 둔다.
 - `scripts/jmh_to_csv.py`: 결과 폴더의 `jmh.json`을 `summary.csv`·`raw.csv`로 변환. `run.sh`가 매 실행 후 자동 호출.
 - `scripts/plot_figures.py`: 모든 본 측정 결과를 모아 논문 그림 3개와 선택 기준 표 생성.
 - `requirements.txt`: 그림 스크립트용 Python 패키지(matplotlib).
@@ -26,11 +27,14 @@ bash build.sh
 bash run.sh smoke
 ```
 
-`check.sh`는 3개 분포 × 2개 난수 초기값에 대해 다음 입력 크기·고유 키 수 조합을 검증한다. 기본 측정 조건 27개와는 다른 숫자다.
+`check.sh`는 3개 분포 × 2개 난수 초기값에 대해 다음 입력 크기·고유 키 수 조합을 검증한다. 모두 102개 입력이며, 측정 조건 수와는 다른 숫자다.
 
-- K=64, 256: N=10,000·100,000·1,000,000 → 36개
-- K=8192: N=100,000·1,000,000 → 12개. N=10,000은 hot90에서 나머지 키에 줄 데이터가 부족해 제외
-- 합계 48개
+- N=10,000: K=64, 256
+- N=100,000: K=64, 256, 1024, 2048, 4096, 8192
+- N=1,000,000: K=64, 256, 1024, 2048, 4096, 8192, 16384, 32768, 65536
+- hot90에서 나머지 K−1개 키에 줄 원소(N의 10%)가 부족한 조합은 뺀다(`Workload.isValid`).
+
+`run.sh`는 환경 변수 두 개를 받는다. `RESULTS_DIR`은 결과 폴더(기본 `results`), `BENCH`는 측정할 방식의 정규식(기본 네 방식 전체)이다. 예: `BENCH='.*parallelConcurrentAdder' bash run.sh full`.
 
 `build.sh`는 JMH 1.37, 그 코드 생성기, jopt-simple 5.0.4, commons-math3 3.6.1을 Maven Central(자바 라이브러리 저장소)에서 `.deps`에 저장한다. 최초 실행에는 네트워크 연결이 필요하다. 전역 Java 설정을 변경하지 않는다.
 
@@ -95,8 +99,9 @@ python3 -m venv .venv
 | 출력 | 내용 | 필요한 실행 |
 |---|---|---|
 | `fig1_scaling.pdf/.png` | 균등 분포·K=256에서 N별 실행시간(로그-로그) | 기본 측정 |
-| `fig2_skew.pdf/.png` | K=256에서 분포별 실행시간, N=10⁵·10⁶ 두 패널 | 기본 측정 |
+| `fig2_skew.pdf/.png` | K=256·hot50·hot90에서 집중 키 원소 수 대 실행시간(로그-로그). 병렬 공유의 원소당 비용 기준선(측정값 중앙값)과 K=64·8192 점 포함 | 기본 측정 (+ K 추가 검증) |
 | `fig3_cardinality.pdf/.png` | N=10⁵에서 K=64·256·8192별 실행시간과 할당 KiB/op, 분포별 세 열 | 기본 측정 + K 추가 검증 두 개 |
+| `fig4_boundary.pdf/.png`, `boundary.csv` | N/K에 따른 순차 ÷ 병렬 병합 시간 비율, N별 선. 비율이 1이 되는 N/K를 CSV로 저장 | K를 여러 개 측정한 N이 있을 때 |
 | `table2_selection.csv/.md` | 조건별 가장 빠른 방식. 2위와 신뢰구간이 겹치면 `tie (CI overlap)` | 모든 측정 |
 | `combined_summary.csv` | 그림에 사용한 모든 행 | 모든 측정 |
 
@@ -138,3 +143,4 @@ java -jar target/benchmarks.jar -foe true -prof gc -rf json -rff measured-result
 - 2026-09-29: 환경 B 준비. `run.sh`에 `RESULTS_DIR`(결과 폴더 지정)과 Linux 환경 기록(`lscpu`, `free -h`, CPU 고정 상태, 주파수 정책, 터보 상태) 추가. `jmh_to_csv.py`가 모든 보조 지표를 `secondary.csv`로도 저장. `run_envB.sh`는 macOS에서 문법 검사만 했으며 Linux에서는 아직 실행하지 않음.
 - 환경 B 결과로 그림을 만들 때: `.venv/bin/python scripts/plot_figures.py --results results-envB --out figures-envB`. 환경 A와 B의 결과를 한 폴더에 섞지 않는다.
 - 장비의 코어 구성: 성능 코어 4개와 효율 코어 6개(`sysctl hw.perflevel0.physicalcpu`, `hw.perflevel1.physicalcpu`). 공용 풀 병렬성 3과 호출 스레드 1개를 합치면 4로, 성능 코어 수와 같다. macOS에서는 스레드를 특정 코어에 고정할 수 없으므로 효율 코어에서 실행될 가능성은 남는다.
+- 2026-09-29: 보편성 추가 실험 준비. (1) `parallelConcurrentAdder` 추가: `groupingByConcurrent`에 `CONCURRENT` 특성의 `LongAdder` 하위 집계를 써서 키별 `synchronized`를 없앤 대조군. (2) N/K 경계 실험용 K(1024–65536) 추가. `check.sh` 102개 입력이 JDK 25에서 통과(네 방식 모두 정답과 일치). 그림 스크립트에 Fig. 4와 `boundary.csv` 추가. 기존 실측값과 가짜 수치로 배치만 확인했다. 새 벤치마크는 아직 측정하지 않았다.

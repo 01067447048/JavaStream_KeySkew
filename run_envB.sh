@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 # Environment B (Ubuntu, Intel i5-8250U) runner. See 환경B용실험안내서.md.
 #
-#   bash run_envB.sh            # all stages: preflight check build main diag pack
-#   bash run_envB.sh preflight  # one stage only (preflight|check|build|main|diag|pack)
+#   bash run_envB.sh            # all stages: preflight check build main boundary diag pack
+#   bash run_envB.sh preflight  # one stage only (preflight|check|build|main|boundary|diag|pack)
 #
 # Options (environment variables):
 #   PIN=0             do not pin to one logical CPU per physical core (default PIN=1)
+#   SKIP_BOUNDARY=1   skip the N/K boundary runs (about 40 minutes)
 #   SKIP_DIAG=1       skip the perf counter stage
 #   ALLOW_WRONG_JDK=1 continue even if java is not Temurin 25.0.4.1 (not for the paper)
 set -euo pipefail
@@ -38,11 +39,12 @@ pin_prefix() {
 }
 
 stage_preflight() {
-    say "1/6 사전 점검"
+    say "1/7 사전 점검"
     [[ "$(uname -s)" == Linux ]] || die "Linux 전용 스크립트다. macOS에서는 run.sh를 쓴다."
     command -v java >/dev/null || die "java가 없다. 안내서 2절대로 JDK를 설치하고 PATH를 설정한다."
     local version
-    version="$(java -version 2>&1 | head -1)"
+    version="$(java -version 2>&1)"
+    version="${version%%$'\n'*}"
     printf '  java: %s\n' "$version"
     if [[ "$version" != *"\"$EXPECTED_JDK\""* ]]; then
         if [[ "${ALLOW_WRONG_JDK:-0}" == 1 ]]; then
@@ -88,18 +90,18 @@ stage_preflight() {
 }
 
 stage_check() {
-    say "2/6 정확성 검사 (48개 입력)"
+    say "2/7 정확성 검사 (102개 입력, 집계 방식 4개)"
     bash check.sh | tee "$SYS_DIR/check.log"
-    grep -q '^PASS: 48 inputs' "$SYS_DIR/check.log" || die "정확성 검사가 48개 입력을 통과하지 못했다."
+    grep -q '^PASS: 102 inputs' "$SYS_DIR/check.log" || die "정확성 검사가 102개 입력을 통과하지 못했다."
 }
 
 stage_build() {
-    say "3/6 빌드"
+    say "3/7 빌드"
     rm -rf build/classes build/generated
     bash build.sh | tee "$SYS_DIR/build.log"
     local n
     n="$(grep -c 'research.skew.AggregationBenchmark\.' "$SYS_DIR/build.log" || true)"
-    [[ "$n" == 3 ]] || die "벤치마크 3개가 등록되지 않았다(발견: $n)."
+    [[ "$n" == 4 ]] || die "벤치마크 4개가 등록되지 않았다(발견: $n)."
 }
 
 run_one() {  # label, expected rows, JMH args...
@@ -121,16 +123,26 @@ run_one() {  # label, expected rows, JMH args...
 }
 
 stage_main() {
-    say "4/6 본 측정 (27 + 9 + 9 + 9 = 54개 조건)"
+    say "4/7 본 측정 (36 + 12 + 12 + 12 = 72개 조건, 방식 4개)"
     [[ -f build/classes/META-INF/BenchmarkList ]] || die "빌드가 없다. bash run_envB.sh build"
-    run_one "기본 측정" 27
-    run_one "추가 검증 ①-a K=64" 9 -p size=100000 -p cardinality=64
-    run_one "추가 검증 ①-b K=8192" 9 -p size=100000 -p cardinality=8192
-    run_one "추가 검증 ② Seed 20260930" 9 -p size=100000 -p seed=20260930
+    run_one "기본 측정" 36
+    run_one "추가 검증 ①-a K=64" 12 -p size=100000 -p cardinality=64
+    run_one "추가 검증 ①-b K=8192" 12 -p size=100000 -p cardinality=8192
+    run_one "추가 검증 ② Seed 20260930" 12 -p size=100000 -p seed=20260930
+}
+
+stage_boundary() {
+    say "5/7 N/K 경계 검증 (36 + 36 = 72개 조건)"
+    if [[ "${SKIP_BOUNDARY:-0}" == 1 ]]; then
+        printf '  SKIP_BOUNDARY=1: 건너뜀\n'; return
+    fi
+    [[ -f build/classes/META-INF/BenchmarkList ]] || die "빌드가 없다. bash run_envB.sh build"
+    run_one "경계 N=10^5, K=1024/2048/4096" 36 -p size=100000 -p cardinality=1024,2048,4096
+    run_one "경계 N=10^6, K=16384/32768/65536" 36 -p size=1000000 -p cardinality=16384,32768,65536
 }
 
 stage_diag() {
-    say "5/6 원인 계측 (perf 하드웨어 카운터, 선택)"
+    say "6/7 원인 계측 (perf 하드웨어 카운터, 선택)"
     if [[ "${SKIP_DIAG:-0}" == 1 ]]; then
         printf '  SKIP_DIAG=1: 건너뜀\n'; return
     fi
@@ -147,7 +159,7 @@ stage_diag() {
 }
 
 stage_pack() {
-    say "6/6 결과 묶기"
+    say "7/7 결과 묶기"
     local out="envB-results-$(hostname -s)-$(date +%Y%m%d-%H%M).tar.gz"
     local dirs=("$MAIN_DIR")
     [[ -d "$DIAG_DIR" ]] && dirs+=("$DIAG_DIR")
@@ -161,12 +173,13 @@ case "$STAGE" in
     check) stage_check ;;
     build) stage_build ;;
     main) stage_preflight; stage_main ;;
+    boundary) stage_preflight; stage_boundary ;;
     diag) stage_diag ;;
     pack) stage_pack ;;
     all)
         start=$(date +%s)
-        stage_preflight; stage_check; stage_build; stage_main; stage_diag; stage_pack
+        stage_preflight; stage_check; stage_build; stage_main; stage_boundary; stage_diag; stage_pack
         say "전체 완료: $(( ($(date +%s) - start) / 60 ))분 소요"
         ;;
-    *) die "알 수 없는 단계: $STAGE (preflight|check|build|main|diag|pack|all)" ;;
+    *) die "알 수 없는 단계: $STAGE (preflight|check|build|main|boundary|diag|pack|all)" ;;
 esac

@@ -4,7 +4,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.SplittableRandom;
+import java.util.concurrent.atomic.LongAdder;
 import java.util.function.Function;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public final class Workload {
@@ -72,8 +74,29 @@ public final class Workload {
                 Collectors.groupingByConcurrent(Function.identity(), Collectors.counting()));
     }
 
+    // Counting downstream that declares CONCURRENT, so groupingByConcurrent updates
+    // it without the per-key synchronized block used for counting() (Collectors.java,
+    // JDK 25, lines 1272-1284). Isolates that block as the cause of the skew cost.
+    static final Collector<Key, LongAdder, Long> CONCURRENT_COUNTING = Collector.of(
+            LongAdder::new,
+            (adder, key) -> adder.increment(),
+            (left, right) -> { left.add(right.sum()); return left; },
+            LongAdder::sum,
+            Collector.Characteristics.CONCURRENT, Collector.Characteristics.UNORDERED);
+
+    public static Map<Key, Long> parallelConcurrentAdder(Key[] input) {
+        return Arrays.stream(input).parallel().collect(
+                Collectors.groupingByConcurrent(Function.identity(), CONCURRENT_COUNTING));
+    }
+
+    /** Same rule as generate(): every key must appear, even under hot90. */
+    public static boolean isValid(int size, int cardinality) {
+        return cardinality >= 2 && size >= cardinality
+                && size - Math.round(size * 0.90) >= cardinality - 1;
+    }
+
     public static void validate(Input input) {
-        // Independent loop checks both the generator and all three collectors.
+        // Independent loop checks both the generator and all four collectors.
         long[] actualCounts = new long[input.expected().length];
         for (Key key : input.keys()) actualCounts[key.id()]++;
         if (!Arrays.equals(actualCounts, input.expected())) {
@@ -87,5 +110,6 @@ public final class Workload {
         if (!expectedMap.equals(sequential(input.keys()))) throw new AssertionError("Sequential mismatch");
         if (!expectedMap.equals(parallelMerge(input.keys()))) throw new AssertionError("Parallel merge mismatch");
         if (!expectedMap.equals(parallelConcurrent(input.keys()))) throw new AssertionError("Concurrent mismatch");
+        if (!expectedMap.equals(parallelConcurrentAdder(input.keys()))) throw new AssertionError("Concurrent adder mismatch");
     }
 }

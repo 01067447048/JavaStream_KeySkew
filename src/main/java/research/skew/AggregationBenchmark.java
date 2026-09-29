@@ -52,4 +52,9 @@ public class AggregationBenchmark {
     public Map<Workload.Key, Long> parallelConcurrent() {
         return Workload.parallelConcurrent(input);
     }
+
+    @Benchmark
+    public Map<Workload.Key, Long> parallelConcurrentAdder() {
+        return Workload.parallelConcurrentAdder(input);
+    }
 }
