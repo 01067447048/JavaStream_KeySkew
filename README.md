@@ -10,6 +10,9 @@
 - `check.sh`: 외부 의존성 없이 정확성 검사.
 - `build.sh`: 실험 폴더 안으로 필요한 네 라이브러리를 내려받고 빌드.
 - `run.sh`: 동작 확인 또는 본 측정. 실행마다 새로운 결과 폴더를 생성.
+- `scripts/jmh_to_csv.py`: 결과 폴더의 `jmh.json`을 `summary.csv`·`raw.csv`로 변환. `run.sh`가 매 실행 후 자동 호출.
+- `scripts/plot_figures.py`: 모든 본 측정 결과를 모아 논문 그림 3개와 선택 기준 표 생성.
+- `requirements.txt`: 그림 스크립트용 Python 패키지(matplotlib).
 - `pom.xml`: Maven(자바 프로젝트 빌드 도구)을 사용하는 환경용 대체 빌드 설정.
 
 ## 실행
@@ -65,6 +68,42 @@ JMH는 부모 프로세스와 자식 JVM(자바 가상 머신) 사이의 로컬 
 - `environment.txt`: 실행 환경, 코드와 라이브러리의 SHA-256(내용 검증 해시), 추가 인자.
 - `console.log`: JMH 전체 실행 기록. 실제 입력 비중·공유 풀 병렬성·인식된 프로세서 수도 포함.
 - `jmh.json`: JSON(구조화된 데이터 형식) 원시 측정 결과.
+- `summary.csv`: 조건별 한 줄. 평균 실행시간(ms), JMH 99.9% 신뢰구간, 원소 기준 처리량, 할당 바이트/op, GC 횟수·시간, JDK·JMH 설정.
+- `raw.csv`: 반복별 한 줄. 실행시간과 할당 바이트의 독립 JVM(fork)·반복 번호별 원시값.
+
+두 CSV는 `run.sh`가 측정 직후 `scripts/jmh_to_csv.py`(Python 표준 라이브러리만 사용)로 자동 생성한다. CSV가 없는 예전 결과 폴더는 `python3 scripts/jmh_to_csv.py results/<폴더>`로 변환한다. 예열이 1회뿐인 smoke 결과는 신뢰구간이 비어 있다.
+
+## 그림과 선택 기준 표
+
+그림 스크립트는 matplotlib이 필요하다. 전역 Python을 건드리지 않도록 프로젝트 안의 가상환경에 설치한다(최초 1회, 네트워크 필요).
+
+```bash
+python3 -m venv .venv
+```
+
+```bash
+.venv/bin/pip install -r requirements.txt
+```
+
+본 측정 결과(`results/full-*`)가 쌓이면 다음 명령으로 `figures/`에 그림과 표를 만든다.
+
+```bash
+.venv/bin/python scripts/plot_figures.py
+```
+
+| 출력 | 내용 | 필요한 실행 |
+|---|---|---|
+| `fig1_scaling.pdf/.png` | 균등 분포·K=256에서 N별 실행시간(로그-로그) | 기본 측정 |
+| `fig2_skew.pdf/.png` | K=256에서 분포별 실행시간, N=10⁵·10⁶ 두 패널 | 기본 측정 |
+| `fig3_cardinality.pdf/.png` | N=10⁵에서 K=64·256·8192별 실행시간과 할당 KiB/op, 분포별 세 열 | 기본 측정 + K 추가 검증 두 개 |
+| `table2_selection.csv/.md` | 조건별 가장 빠른 방식. 2위와 신뢰구간이 겹치면 `tie (CI overlap)` | 모든 측정 |
+| `combined_summary.csv` | 그림에 사용한 모든 행 | 모든 측정 |
+
+- 같은 조건을 여러 번 측정했다면 가장 최근 실행을 쓰고, 어느 실행이 대체됐는지 화면에 출력한다.
+- 그림은 기본 Seed(20260929)만 사용한다. 입력 순서 검증(Seed 20260930)은 표와 `combined_summary.csv`에만 들어간다.
+- 조건이 부족한 그림은 건너뛰고 이유를 출력한다.
+- 오차 막대는 JMH 99.9% 신뢰구간이다. PDF는 글꼴을 내장(Type 42)하므로 IEEE 원고에 바로 넣을 수 있다.
+- `--include-smoke`는 smoke 결과까지 읽는다. 배치를 확인하는 용도이며, 그 그림은 논문에 쓰지 않는다.
 
 기본 결과 단위는 `ms/op`(전체 배열 집계 1회당 밀리초)다. `gc.alloc.rate.norm`(집계 1회당 할당 바이트)은 입력 생성 비용을 포함하지 않는다. 할당률 자체만으로 캐시 미스나 메모리 대역폭을 추정하지 않는다.
 
@@ -92,4 +131,6 @@ java -jar target/benchmarks.jar -foe true -prof gc -rf json -rff measured-result
 - 2026-09-29: 본 측정 JDK를 Eclipse Temurin 25.0.4.1 LTS로 변경. JDK 25의 `Collectors.java`에서 `counting()`이 `summingLong` 기반이고, `groupingByConcurrent`가 동시 갱신을 지원하지 않는 하위 집계에 `synchronized`를 적용함을 다시 확인(1283행).
 - JDK 25로 바꾼 뒤 `bash check.sh`와 `bash build.sh`를 다시 실행해야 함. 기존 `build/`는 JDK 24로 컴파일된 산출물이다.
 - 2026-09-29: K=8192 추가 검증 조건 추가. `Validation.java`의 검사 대상이 36개에서 48개 입력으로 늘었으며, JDK 25에서 아직 실행하지 않음.
+- 2026-09-29: CSV 자동 저장과 그림 스크립트 추가. CSV 변환은 기존 smoke 결과의 복사본으로 동작을 확인함(6개 조건, 원시값 12개). `run.sh` 안에서의 자동 호출은 실제 측정으로 아직 실행하지 않음.
+- 2026-09-29: `.venv`에 matplotlib 3.11.2 설치. 그림 스크립트는 프로젝트 밖 임시 폴더에서 **가짜 수치**로 배치(글자 겹침, 눈금, 범례)만 확인함. 실제 측정 그림은 아직 없음.
 - 장비의 코어 구성: 성능 코어 4개와 효율 코어 6개(`sysctl hw.perflevel0.physicalcpu`, `hw.perflevel1.physicalcpu`). 공용 풀 병렬성 3과 호출 스레드 1개를 합치면 4로, 성능 코어 수와 같다. macOS에서는 스레드를 특정 코어에 고정할 수 없으므로 효율 코어에서 실행될 가능성은 남는다.

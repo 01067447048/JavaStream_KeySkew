@@ -32,4 +32,9 @@ java -cp 'build/classes:.deps/*' org.openjdk.jmh.Main \
     'research.skew.AggregationBenchmark.*' \
     -foe true -prof gc -rf json -rff "$output_dir/jmh.json" ${settings[@]+"${settings[@]}"} "$@" \
     2>&1 | tee "$output_dir/console.log"
+if command -v python3 >/dev/null 2>&1; then
+    python3 scripts/jmh_to_csv.py "$output_dir"
+else
+    printf '%s\n' 'python3 not found: CSV not written. Convert later with scripts/jmh_to_csv.py' >&2
+fi
 printf 'Saved: %s\n' "$output_dir"
