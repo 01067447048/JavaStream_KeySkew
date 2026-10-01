@@ -272,6 +272,7 @@ results-envB-diag/           # 5절을 했을 때만
 | `정확성 검사가 102개 입력을 통과하지 못했다` | 코드가 바뀌었거나 압축이 손상되었다. 다시 받아 푼다. 계속 실패하면 `results-envB/system/check.log`를 주저자에게 보낸다 |
 | `벤치마크 4개가 등록되지 않았다` | `results-envB/system/build.log`를 확인한다. `.deps/` 폴더에 jar 4개가 있어야 한다 |
 | `summary.csv가 N줄이다(기대: M)` 또는 `console.log에 오류` | 해당 폴더의 `console.log`를 주저자에게 보낸다. 임의로 다시 돌리지 않는다 |
+| `다른 JMH가 실행 중이다` 또는 `Unable to acquire the JMH lock` | 이전 실행이 아직 돌고 있거나 **Ctrl+Z로 일시정지**되어 있다. Ctrl+Z는 프로그램을 끝내지 않는다. 그 터미널에서 `fg` 후 Ctrl+C로 끝내거나 `kill <pid>`로 끝낸다. 중단된 실행의 `results-envB/full-*` 폴더는 불완전하므로 주저자에게 알린다. **실행을 멈출 때는 항상 Ctrl+C를 쓴다** |
 | `perf를 쓸 수 없어 건너뛴다` | 5절 준비가 안 된 것이다. 선택 항목이라 그대로 두어도 된다 |
 | 측정 중 절전·재부팅·강제 종료 | 중단된 실행은 불완전하다. `results-envB`를 `results-envB-중단`으로 이름을 바꾸고 4.2부터 다시 실행한다 |
 | `python3가 없어 CSV가 만들어지지 않는다` | `sudo apt install python3`. 이미 끝난 측정은 `jmh.json`이 있으므로 주저자가 변환할 수 있다 |

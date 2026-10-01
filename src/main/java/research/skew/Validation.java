@@ -31,7 +31,17 @@ public final class Validation {
         if (!Workload.CONCURRENT_COUNTING.characteristics().contains(Collector.Characteristics.CONCURRENT)) {
             throw new AssertionError("Adder collector must be CONCURRENT to skip the per-key lock");
         }
-        System.out.println("PASS: " + cases + " inputs; exact histograms, seed reproducibility, and four collectors agree.");
+        // E1 2x2: the synchronized-adder cell must keep the per-key lock, the atomic cell must skip it.
+        if (Workload.SYNC_ADDER_COUNTING.characteristics().contains(Collector.Characteristics.CONCURRENT)) {
+            throw new AssertionError("Synchronized adder must not be CONCURRENT");
+        }
+        if (!Workload.ATOMIC_COUNTING.characteristics().contains(Collector.Characteristics.CONCURRENT)) {
+            throw new AssertionError("Atomic collector must be CONCURRENT to skip the per-key lock");
+        }
+        if (Workload.SYNC_ATOMIC_COUNTING.characteristics().contains(Collector.Characteristics.CONCURRENT)) {
+            throw new AssertionError("Synchronized atomic must not be CONCURRENT");
+        }
+        System.out.println("PASS: " + cases + " inputs; exact histograms, seed reproducibility, and all nine collectors agree (four + two presized + three E1).");
         System.out.println("This is a correctness check, not a performance measurement.");
     }
 }

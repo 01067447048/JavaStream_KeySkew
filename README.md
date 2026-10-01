@@ -12,6 +12,13 @@
 - `run.sh`: 동작 확인 또는 본 측정. 실행마다 새로운 결과 폴더를 생성.
 - `run_envB.sh`: 환경 B(Ubuntu, Intel i5-8250U)용 전체 실행 스크립트. 사전 점검, 정확성 검사, 빌드, 본 측정 4회, N/K 경계 검증 2회, 선택적 perf 계측, 결과 묶기를 한 번에 수행. 결과는 `results-envB/`에 따로 저장. 사용법은 `환경B용실험안내서.md`.
 - `run_envA_extra.sh`: 환경 A(이 Mac)에서 보편성 추가 실험만 실행. LongAdder 대조군과 N/K 경계 실험을 측정하고 그림을 다시 만든다. 기존 `results/`는 그대로 둔다.
+- `run_anomaly.sh`: LongAdder 대조군 이상값(결과분석표 9.4)이 거짓 공유 때문인지 확인. 1단계는 Seed 3개로 같은 조건을 측정하고, 2단계는 `-XX:ObjectAlignmentInBytes=128`로 측정. 결과는 `results-anomaly/`, `results-anomaly-align128/`에만 저장해 논문 그림에 영향을 주지 않으며, 요약은 `results-anomaly/anomaly_summary.md`.
+- `run_e0.sh`: E0 맵 초기 크기 확인 실험(`PresizeBenchmark`). 결과는 `results-e0/`, 요약은 `results-e0/e0_summary.md`. 정의는 실험과정및정의내역 7절.
+- `run_e1.sh`: E1 2×2 대조 실험(`ControlBenchmark`: 키별 `synchronized` 유무 × 카운터 한 칸/분산). 결과는 `results-e1/`, 요약은 `results-e1/e1_summary.md`. 정의는 실험과정및정의내역 8절.
+- `run_review2.sh`: 2차 리뷰 추가 실험 E3(고정 맵 버킷 위치, `BinHeadBenchmark`), E1b(`syncAtomic` 포함 다섯 구현), E2(긴 예열 재측정). `STEPS="E3 E1b E2"`로 선택. 결과는 `results-e3/`, `results-e1b/`, `results-e2/`의 `summary.md`(요약 스크립트 `scripts/review2_summary.py`). 정의는 실험과정및정의내역 9절.
+- `figures/paper/`: 논문에 넣는 그림과 표. `Fig1.pdf`(= `fig4_boundary`), `Fig2.pdf`(= `fig2_skew`), `tables.tex`(Table I–IV, booktabs·amssymb 필요), `floats_test.tex`(Overleaf 배치 확인용, 그림 캡션 포함).
+- `diag/run_binhead.sh`: 진단(시간 측정 없음). 기본은 버킷 0 상태 4종(비선두 관찰 비율 등)을 실행별 CSV로 `results-diag/`에 저장한다. `cells`는 `LongAdder` 셀 생성 확인, `detail N K SEED`는 실행별 버킷 내용. 결과는 결과분석표 11·14절.
+- `results-envB/`, `figures-envB/`: 환경 B(i5-8250U) 결과와 그림. 공저자가 구버전 스크립트로 먼저 돌린 실행은 `results-envB-superseded/`에 따로 두었고 분석에 쓰지 않는다.
 - `scripts/jmh_to_csv.py`: 결과 폴더의 `jmh.json`을 `summary.csv`·`raw.csv`로 변환. `run.sh`가 매 실행 후 자동 호출.
 - `scripts/plot_figures.py`: 모든 본 측정 결과를 모아 논문 그림 3개와 선택 기준 표 생성.
 - `requirements.txt`: 그림 스크립트용 Python 패키지(matplotlib).

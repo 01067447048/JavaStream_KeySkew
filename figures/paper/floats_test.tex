@@ -1,0 +1,36 @@
+% Layout check for the paper's figures and tables in the IEEE conference template.
+% Overleaf: upload this file, tables.tex, Fig1.pdf and Fig2.pdf to one project and compile
+% with pdfLaTeX (IEEEtran.cls is built in). Copy the figure blocks below into the paper.
+\documentclass[conference]{IEEEtran}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amssymb}
+
+\begin{document}
+\title{Float layout check}
+\maketitle
+
+\section{Figures}
+
+% Fig. 1: two-column width (6.2 x 2.5 in), place near Section IV-A.
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.9\textwidth]{Fig1.pdf}
+\caption{Sequential time divided by parallel-merge time versus records per key ($N/K$) on platform A, for uniform, 50\%-hot and 90\%-hot inputs. Lines connect observed points; error bars span the ratio of the two methods' individual 99.9\% interval end points and are not a confidence interval of the ratio. The $N{=}10^4$, 90\%-hot point (1.68) is the original measurement; a re-measurement with a longer warm-up gave 1.35 (Section IV-E).}
+\label{fig:crossover}
+\end{figure*}
+
+% Fig. 2: one-column width (3.4 x 3.2 in), place near Section IV-B.
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{Fig2.pdf}
+\caption{Time per aggregation versus records on the hot key for $K{=}256$ on platform A (log--log). Hollow triangles: parallel concurrent grouping at other $K$. Dashed line: median normalized cost (89\,ns per hot-key record). The \texttt{LongAdder} series is the control, not a stock collector; its slow configurations at other $K$ are listed in Table~\ref{tab:exceptions}.}
+\label{fig:skew}
+\end{figure}
+
+\section{Tables}
+Tables \ref{tab:platforms}, \ref{tab:downstream}, \ref{tab:exceptions} and \ref{tab:guide}.
+
+\input{tables.tex}
+
+\end{document}

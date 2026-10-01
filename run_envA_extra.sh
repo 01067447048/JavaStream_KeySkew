@@ -24,6 +24,11 @@ run_one() {  # label, expected rows, then env/JMH args passed to run.sh
 }
 
 [[ "$(java -version 2>&1)" == *'"25.0.4.1"'* ]] || die "java is not Temurin 25.0.4.1"
+# A suspended (Ctrl+Z) or still-running JMH holds the JMH lock and would make every run fail.
+if pids="$(pgrep -f 'org.openjdk.jmh.Main')"; then
+    ps -o pid,stat,etime,command -p "$(echo "$pids" | paste -sd, -)" | cut -c1-120
+    die "another JMH is running (STAT T = suspended by Ctrl+Z). Stop it first: fg then Ctrl+C, or kill <pid>"
+fi
 
 say "check (102 inputs, four collectors)"
 bash check.sh | tee /dev/stderr | grep '^PASS: 102 inputs' >/dev/null || die "correctness check failed"

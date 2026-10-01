@@ -1,0 +1,23 @@
+Wed Sep 30 03:03:16 UTC 2026
+Darwin MacBook-Pro.local 25.6.0 Darwin Kernel Version 25.6.0: Fri Jul 31 19:16:20 PDT 2026; root:xnu-12377.161.14~5/RELEASE_ARM64_T8142 arm64
+openjdk version "25.0.4.1" 2026-08-18 LTS
+OpenJDK Runtime Environment Temurin-25.0.4.1+1 (build 25.0.4.1+1-LTS)
+OpenJDK 64-Bit Server VM Temurin-25.0.4.1+1 (build 25.0.4.1+1-LTS, mixed mode, sharing)
+Mode: full
+Benchmarks: research.skew.PresizeBenchmark.adder.*
+Additional arguments: -p size=10000 -p cardinality=256 -p distribution=hot90 -p seed=20260929 
+d3abf23b51a17ea7eaed14da6061e4d45dc1fd0c4c182a103a83ebef4b6e617b  src/main/java/research/skew/AggregationBenchmark.java
+46e1bf7c2e8e92d4a4201d57c896068e02c13cf1cf4ece1289ae9a3c4c3dedd0  src/main/java/research/skew/PresizeBenchmark.java
+909954fb7fea1f37a563c374ed8dde89f94167b52ab658303a78ce665882d135  src/main/java/research/skew/Validation.java
+be7439cdb7a827a2406070d8660d741eb71cdce3070f311ca33791e57962f430  src/main/java/research/skew/Workload.java
+1e56d7b058d28b65abd256b8458e3885b674c1d588fa43cd7d1cbb9c7ef2b308  .deps/commons-math3-3.6.1.jar
+dc0eaf2bbf0036a70b60798c785d6e03a9daf06b68b8edb0f1ba9eb3421baeb3  .deps/jmh-core-1.37.jar
+6a5604b5b804e0daca1145df1077609321687734a8b49387e49f10557c186c77  .deps/jmh-generator-annprocess-1.37.jar
+df26cc58f235f477db07f753ba5a3ab243ebe5789d9f89ecf68dd62ea9a66c28  .deps/jopt-simple-5.0.4.jar
+machdep.cpu.brand_string: Apple M5
+hw.physicalcpu: 10
+hw.logicalcpu: 10
+hw.memsize: 34359738368
+ProductName:		macOS
+ProductVersion:		26.6.2
+BuildVersion:		25G83

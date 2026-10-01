@@ -234,9 +234,9 @@ def fig2_skew(rows, out_dir):
     if extra:
         style = STYLE["parallelConcurrent"]
         ax.plot([x for x, _ in extra], [p["score_ms"] for _, p in extra],
-                linestyle="none", marker=style["marker"], markersize=10,
+                linestyle="none", marker=style["marker"], markersize=7.5,
                 markerfacecolor="none", markeredgecolor=style["color"],
-                markeredgewidth=0.9, zorder=5,  # ring around the K=256 point it overlaps
+                markeredgewidth=0.8, zorder=5,  # ring around the K=256 point it overlaps
                 label="Parallel concurrent, K = " + (" / ".join(map(str, other_ks))
                     if len(other_ks) <= 2 else f"{other_ks[0]}–{other_ks[-1]} (K ≠ 256)"))
 
@@ -246,7 +246,7 @@ def fig2_skew(rows, out_dir):
               max(hot_records(n, BASE_K, "hot90") for n in sizes) * 1.5]
         ax.plot(xs, [x * slope / 1e6 for x in xs], color=MUTED, linewidth=0.8,
                 linestyle=(0, (4, 2)), zorder=0,
-                label=f"{slope:.0f} ns per hot-key record")
+                label=f"Reference: T = ({slope:.0f} ns) qN")
 
     # Direct labels at the right end of each flat sequential line.
     for n in sizes:
@@ -266,7 +266,7 @@ def fig2_skew(rows, out_dir):
     ax.set_xlabel("Records on the hot key (log)")
     ax.set_ylabel("Time per aggregation (ms, log)")
     ax.set_xlim(right=max(hot_records(n, BASE_K, "hot90") for n in sizes) * 4)
-    ax.set_title("K = 256, hot-key share 50% and 90%", color=INK)
+    ax.set_title("Hot-key load and aggregation time (platform A)", color=INK)
     handles, labels = ax.get_legend_handles_labels()
     height = 2.2 + 0.16 * len(labels)  # grow the figure with the legend
     fig.set_size_inches(COLUMN_WIDTH, height)
@@ -445,8 +445,10 @@ def main():
     out_dir = Path(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)
     fields = jmh_to_csv.SUMMARY_FIELDS
+    as_int = {"size", "cardinality", "seed"}  # parsed as float in load_rows
     jmh_to_csv.write_csv(out_dir / "combined_summary.csv", fields,
-                         [{f: r.get(f, "") for f in fields} for r in rows.values()])
+                         [{f: int(r[f]) if f in as_int else r.get(f, "") for f in fields}
+                          for r in rows.values()])
     fig1_scaling(rows, out_dir)
     fig2_skew(rows, out_dir)
     fig3_cardinality(rows, out_dir)

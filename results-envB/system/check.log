@@ -1,0 +1,2 @@
+PASS: 102 inputs; exact histograms, seed reproducibility, and four collectors agree.
+This is a correctness check, not a performance measurement.

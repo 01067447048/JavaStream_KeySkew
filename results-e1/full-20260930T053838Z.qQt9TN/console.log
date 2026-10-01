@@ -1,0 +1,2104 @@
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# JMH version: 1.37
+# VM version: JDK 25.0.4.1, OpenJDK 64-Bit Server VM, 25.0.4.1+1-LTS
+# VM invoker: /Users/jaehyeon/Library/Java/JavaVirtualMachines/temurin-25.0.4.1/Contents/Home/bin/java
+# VM options: -Xms512m -Xmx512m -Djava.util.concurrent.ForkJoinPool.common.parallelism=3
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: research.skew.ControlBenchmark.casAdder
+# Parameters: (cardinality = 256, distribution = uniform, seed = 20260929, size = 1000000)
+
+# Run progress: 0.00% complete, ETA 00:06:00
+# Fork: 1 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+7.140 ms/op
+# Warmup Iteration   2: 6.888 ms/op
+# Warmup Iteration   3: 6.674 ms/op
+# Warmup Iteration   4: 6.610 ms/op
+# Warmup Iteration   5: 6.603 ms/op
+Iteration   1: 6.665 ms/op
+                 gc.alloc.rate:      2315.689 MB/sec
+                 gc.alloc.rate.norm: 16185922.105 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            4.000 ms
+
+Iteration   2: 6.788 ms/op
+                 gc.alloc.rate:      2273.685 MB/sec
+                 gc.alloc.rate.norm: 16184908.671 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   3: 6.615 ms/op
+                 gc.alloc.rate:      2333.325 MB/sec
+                 gc.alloc.rate.norm: 16185692.026 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   4: 6.657 ms/op
+                 gc.alloc.rate:      2318.383 MB/sec
+                 gc.alloc.rate.norm: 16185237.474 B/op
+                 gc.count:           7.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   5: 6.672 ms/op
+                 gc.alloc.rate:      2313.411 MB/sec
+                 gc.alloc.rate.norm: 16185746.808 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            3.000 ms
+
+
+# Run progress: 2.78% complete, ETA 00:06:04
+# Fork: 2 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+6.829 ms/op
+# Warmup Iteration   2: 6.684 ms/op
+# Warmup Iteration   3: 6.552 ms/op
+# Warmup Iteration   4: 6.501 ms/op
+# Warmup Iteration   5: 6.511 ms/op
+Iteration   1: 6.526 ms/op
+                 gc.alloc.rate:      2365.253 MB/sec
+                 gc.alloc.rate.norm: 16186391.948 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            4.000 ms
+
+Iteration   2: 6.547 ms/op
+                 gc.alloc.rate:      2357.674 MB/sec
+                 gc.alloc.rate.norm: 16185856.261 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   3: 6.548 ms/op
+                 gc.alloc.rate:      2357.133 MB/sec
+                 gc.alloc.rate.norm: 16186405.299 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            4.000 ms
+
+Iteration   4: 6.520 ms/op
+                 gc.alloc.rate:      2367.238 MB/sec
+                 gc.alloc.rate.norm: 16186534.916 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            4.000 ms
+
+Iteration   5: 6.520 ms/op
+                 gc.alloc.rate:      2367.172 MB/sec
+                 gc.alloc.rate.norm: 16186185.032 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            3.000 ms
+
+
+# Run progress: 5.56% complete, ETA 00:05:53
+# Fork: 3 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+7.094 ms/op
+# Warmup Iteration   2: 6.770 ms/op
+# Warmup Iteration   3: 6.677 ms/op
+# Warmup Iteration   4: 6.629 ms/op
+# Warmup Iteration   5: 6.654 ms/op
+Iteration   1: 6.690 ms/op
+                 gc.alloc.rate:      2307.190 MB/sec
+                 gc.alloc.rate.norm: 16185967.735 B/op
+                 gc.count:           7.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   2: 6.680 ms/op
+                 gc.alloc.rate:      2310.474 MB/sec
+                 gc.alloc.rate.norm: 16184648.421 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            4.000 ms
+
+Iteration   3: 6.602 ms/op
+                 gc.alloc.rate:      2337.804 MB/sec
+                 gc.alloc.rate.norm: 16185752.941 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   4: 6.894 ms/op
+                 gc.alloc.rate:      2238.950 MB/sec
+                 gc.alloc.rate.norm: 16186142.857 B/op
+                 gc.count:           7.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   5: 6.960 ms/op
+                 gc.alloc.rate:      2217.610 MB/sec
+                 gc.alloc.rate.norm: 16186078.345 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            3.000 ms
+
+
+
+Result "research.skew.ControlBenchmark.casAdder":
+  6.659 ±(99.9%) 0.143 ms/op [Average]
+  (min, avg, max) = (6.520, 6.659, 6.960), stdev = 0.134
+  CI (99.9%): [6.516, 6.802] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.casAdder:gc.alloc.rate":
+  2318.733 ±(99.9%) 48.899 MB/sec [Average]
+  (min, avg, max) = (2217.610, 2318.733, 2367.238), stdev = 45.740
+  CI (99.9%): [2269.834, 2367.632] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.casAdder:gc.alloc.rate.norm":
+  16185831.389 ±(99.9%) 577.500 B/op [Average]
+  (min, avg, max) = (16184648.421, 16185831.389, 16186534.916), stdev = 540.194
+  CI (99.9%): [16185253.889, 16186408.890] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.casAdder:gc.count":
+  117.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (7.000, 7.800, 8.000), stdev = 0.414
+  CI (99.9%): [117.000, 117.000] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.casAdder:gc.time":
+  50.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (3.000, 3.333, 4.000), stdev = 0.488
+  CI (99.9%): [50.000, 50.000] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.4.1, OpenJDK 64-Bit Server VM, 25.0.4.1+1-LTS
+# VM invoker: /Users/jaehyeon/Library/Java/JavaVirtualMachines/temurin-25.0.4.1/Contents/Home/bin/java
+# VM options: -Xms512m -Xmx512m -Djava.util.concurrent.ForkJoinPool.common.parallelism=3
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: research.skew.ControlBenchmark.casAdder
+# Parameters: (cardinality = 256, distribution = hot50, seed = 20260929, size = 1000000)
+
+# Run progress: 8.33% complete, ETA 00:05:43
+# Fork: 1 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+5.595 ms/op
+# Warmup Iteration   2: 5.256 ms/op
+# Warmup Iteration   3: 5.106 ms/op
+# Warmup Iteration   4: 5.160 ms/op
+# Warmup Iteration   5: 5.330 ms/op
+Iteration   1: 5.273 ms/op
+                 gc.alloc.rate:      2927.233 MB/sec
+                 gc.alloc.rate.norm: 16185374.500 B/op
+                 gc.count:           10.000 counts
+                 gc.time:            4.000 ms
+
+Iteration   2: 5.214 ms/op
+                 gc.alloc.rate:      2960.738 MB/sec
+                 gc.alloc.rate.norm: 16187432.454 B/op
+                 gc.count:           10.000 counts
+                 gc.time:            4.000 ms
+
+Iteration   3: 5.239 ms/op
+                 gc.alloc.rate:      2946.692 MB/sec
+                 gc.alloc.rate.norm: 16187838.632 B/op
+                 gc.count:           9.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   4: 5.134 ms/op
+                 gc.alloc.rate:      3006.798 MB/sec
+                 gc.alloc.rate.norm: 16188574.741 B/op
+                 gc.count:           10.000 counts
+                 gc.time:            4.000 ms
+
+Iteration   5: 5.155 ms/op
+                 gc.alloc.rate:      2994.098 MB/sec
+                 gc.alloc.rate.norm: 16187646.327 B/op
+                 gc.count:           10.000 counts
+                 gc.time:            4.000 ms
+
+
+# Run progress: 11.11% complete, ETA 00:05:33
+# Fork: 2 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+5.937 ms/op
+# Warmup Iteration   2: 5.646 ms/op
+# Warmup Iteration   3: 5.539 ms/op
+# Warmup Iteration   4: 5.569 ms/op
+# Warmup Iteration   5: 5.611 ms/op
+Iteration   1: 5.579 ms/op
+                 gc.alloc.rate:      2766.999 MB/sec
+                 gc.alloc.rate.norm: 16188402.022 B/op
+                 gc.count:           9.000 counts
+                 gc.time:            4.000 ms
+
+Iteration   2: 5.579 ms/op
+                 gc.alloc.rate:      2766.852 MB/sec
+                 gc.alloc.rate.norm: 16187981.275 B/op
+                 gc.count:           9.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   3: 5.657 ms/op
+                 gc.alloc.rate:      2728.563 MB/sec
+                 gc.alloc.rate.norm: 16186494.972 B/op
+                 gc.count:           9.000 counts
+                 gc.time:            4.000 ms
+
+Iteration   4: 5.571 ms/op
+                 gc.alloc.rate:      2770.771 MB/sec
+                 gc.alloc.rate.norm: 16188757.481 B/op
+                 gc.count:           10.000 counts
+                 gc.time:            4.000 ms
+
+Iteration   5: 5.623 ms/op
+                 gc.alloc.rate:      2745.226 MB/sec
+                 gc.alloc.rate.norm: 16186769.564 B/op
+                 gc.count:           9.000 counts
+                 gc.time:            3.000 ms
+
+
+# Run progress: 13.89% complete, ETA 00:05:23
+# Fork: 3 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+5.582 ms/op
+# Warmup Iteration   2: 5.308 ms/op
+# Warmup Iteration   3: 5.202 ms/op
+# Warmup Iteration   4: 5.197 ms/op
+# Warmup Iteration   5: 5.219 ms/op
+Iteration   1: 5.193 ms/op
+                 gc.alloc.rate:      2972.635 MB/sec
+                 gc.alloc.rate.norm: 16188482.297 B/op
+                 gc.count:           10.000 counts
+                 gc.time:            4.000 ms
+
+Iteration   2: 5.161 ms/op
+                 gc.alloc.rate:      2991.032 MB/sec
+                 gc.alloc.rate.norm: 16188280.490 B/op
+                 gc.count:           10.000 counts
+                 gc.time:            4.000 ms
+
+Iteration   3: 5.200 ms/op
+                 gc.alloc.rate:      2968.920 MB/sec
+                 gc.alloc.rate.norm: 16189233.723 B/op
+                 gc.count:           10.000 counts
+                 gc.time:            4.000 ms
+
+Iteration   4: 5.126 ms/op
+                 gc.alloc.rate:      3011.800 MB/sec
+                 gc.alloc.rate.norm: 16189232.606 B/op
+                 gc.count:           10.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   5: 5.171 ms/op
+                 gc.alloc.rate:      2985.385 MB/sec
+                 gc.alloc.rate.norm: 16188432.206 B/op
+                 gc.count:           10.000 counts
+                 gc.time:            4.000 ms
+
+
+
+Result "research.skew.ControlBenchmark.casAdder":
+  5.325 ±(99.9%) 0.221 ms/op [Average]
+  (min, avg, max) = (5.126, 5.325, 5.657), stdev = 0.207
+  CI (99.9%): [5.104, 5.546] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.casAdder:gc.alloc.rate":
+  2902.916 ±(99.9%) 117.912 MB/sec [Average]
+  (min, avg, max) = (2728.563, 2902.916, 3011.800), stdev = 110.295
+  CI (99.9%): [2785.004, 3020.828] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.casAdder:gc.alloc.rate.norm":
+  16187928.886 ±(99.9%) 1131.216 B/op [Average]
+  (min, avg, max) = (16185374.500, 16187928.886, 16189233.723), stdev = 1058.141
+  CI (99.9%): [16186797.669, 16189060.102] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.casAdder:gc.count":
+  145.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (9.000, 9.667, 10.000), stdev = 0.488
+  CI (99.9%): [145.000, 145.000] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.casAdder:gc.time":
+  56.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (3.000, 3.733, 4.000), stdev = 0.458
+  CI (99.9%): [56.000, 56.000] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.4.1, OpenJDK 64-Bit Server VM, 25.0.4.1+1-LTS
+# VM invoker: /Users/jaehyeon/Library/Java/JavaVirtualMachines/temurin-25.0.4.1/Contents/Home/bin/java
+# VM options: -Xms512m -Xmx512m -Djava.util.concurrent.ForkJoinPool.common.parallelism=3
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: research.skew.ControlBenchmark.casAdder
+# Parameters: (cardinality = 256, distribution = hot90, seed = 20260929, size = 1000000)
+
+# Run progress: 16.67% complete, ETA 00:05:13
+# Fork: 1 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+4.615 ms/op
+# Warmup Iteration   2: 4.545 ms/op
+# Warmup Iteration   3: 4.527 ms/op
+# Warmup Iteration   4: 4.471 ms/op
+# Warmup Iteration   5: 4.516 ms/op
+Iteration   1: 4.475 ms/op
+                 gc.alloc.rate:      3426.419 MB/sec
+                 gc.alloc.rate.norm: 16079395.788 B/op
+                 gc.count:           11.000 counts
+                 gc.time:            4.000 ms
+
+Iteration   2: 4.482 ms/op
+                 gc.alloc.rate:      3420.976 MB/sec
+                 gc.alloc.rate.norm: 16079828.143 B/op
+                 gc.count:           11.000 counts
+                 gc.time:            4.000 ms
+
+Iteration   3: 4.469 ms/op
+                 gc.alloc.rate:      3431.530 MB/sec
+                 gc.alloc.rate.norm: 16081051.646 B/op
+                 gc.count:           12.000 counts
+                 gc.time:            5.000 ms
+
+Iteration   4: 4.485 ms/op
+                 gc.alloc.rate:      3419.212 MB/sec
+                 gc.alloc.rate.norm: 16080040.354 B/op
+                 gc.count:           11.000 counts
+                 gc.time:            4.000 ms
+
+Iteration   5: 4.473 ms/op
+                 gc.alloc.rate:      3427.892 MB/sec
+                 gc.alloc.rate.norm: 16079166.372 B/op
+                 gc.count:           11.000 counts
+                 gc.time:            4.000 ms
+
+
+# Run progress: 19.44% complete, ETA 00:05:03
+# Fork: 2 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+4.171 ms/op
+# Warmup Iteration   2: 4.009 ms/op
+# Warmup Iteration   3: 3.979 ms/op
+# Warmup Iteration   4: 4.039 ms/op
+# Warmup Iteration   5: 4.037 ms/op
+Iteration   1: 4.026 ms/op
+                 gc.alloc.rate:      3810.372 MB/sec
+                 gc.alloc.rate.norm: 16085683.825 B/op
+                 gc.count:           13.000 counts
+                 gc.time:            5.000 ms
+
+Iteration   2: 4.026 ms/op
+                 gc.alloc.rate:      3809.593 MB/sec
+                 gc.alloc.rate.norm: 16085841.179 B/op
+                 gc.count:           12.000 counts
+                 gc.time:            4.000 ms
+
+Iteration   3: 4.004 ms/op
+                 gc.alloc.rate:      3830.919 MB/sec
+                 gc.alloc.rate.norm: 16085460.838 B/op
+                 gc.count:           13.000 counts
+                 gc.time:            5.000 ms
+
+Iteration   4: 4.026 ms/op
+                 gc.alloc.rate:      3809.853 MB/sec
+                 gc.alloc.rate.norm: 16085271.904 B/op
+                 gc.count:           13.000 counts
+                 gc.time:            5.000 ms
+
+Iteration   5: 4.021 ms/op
+                 gc.alloc.rate:      3814.184 MB/sec
+                 gc.alloc.rate.norm: 16084632.286 B/op
+                 gc.count:           13.000 counts
+                 gc.time:            5.000 ms
+
+
+# Run progress: 22.22% complete, ETA 00:04:53
+# Fork: 3 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+4.158 ms/op
+# Warmup Iteration   2: 4.029 ms/op
+# Warmup Iteration   3: 3.682 ms/op
+# Warmup Iteration   4: 3.518 ms/op
+# Warmup Iteration   5: 3.488 ms/op
+Iteration   1: 3.521 ms/op
+                 gc.alloc.rate:      4356.727 MB/sec
+                 gc.alloc.rate.norm: 16086550.070 B/op
+                 gc.count:           15.000 counts
+                 gc.time:            6.000 ms
+
+Iteration   2: 3.506 ms/op
+                 gc.alloc.rate:      4373.955 MB/sec
+                 gc.alloc.rate.norm: 16083393.190 B/op
+                 gc.count:           14.000 counts
+                 gc.time:            6.000 ms
+
+Iteration   3: 3.481 ms/op
+                 gc.alloc.rate:      4405.500 MB/sec
+                 gc.alloc.rate.norm: 16082652.756 B/op
+                 gc.count:           15.000 counts
+                 gc.time:            6.000 ms
+
+Iteration   4: 3.467 ms/op
+                 gc.alloc.rate:      4423.894 MB/sec
+                 gc.alloc.rate.norm: 16082602.904 B/op
+                 gc.count:           14.000 counts
+                 gc.time:            5.000 ms
+
+Iteration   5: 3.489 ms/op
+                 gc.alloc.rate:      4395.732 MB/sec
+                 gc.alloc.rate.norm: 16083507.228 B/op
+                 gc.count:           15.000 counts
+                 gc.time:            6.000 ms
+
+
+
+Result "research.skew.ControlBenchmark.casAdder":
+  3.997 ±(99.9%) 0.445 ms/op [Average]
+  (min, avg, max) = (3.467, 3.997, 4.485), stdev = 0.416
+  CI (99.9%): [3.552, 4.442] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.casAdder:gc.alloc.rate":
+  3877.117 ±(99.9%) 439.379 MB/sec [Average]
+  (min, avg, max) = (3419.212, 3877.117, 4423.894), stdev = 410.996
+  CI (99.9%): [3437.738, 4316.496] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.casAdder:gc.alloc.rate.norm":
+  16083005.232 ±(99.9%) 2751.706 B/op [Average]
+  (min, avg, max) = (16079166.372, 16083005.232, 16086550.070), stdev = 2573.948
+  CI (99.9%): [16080253.526, 16085756.938] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.casAdder:gc.count":
+  193.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (11.000, 12.867, 15.000), stdev = 1.506
+  CI (99.9%): [193.000, 193.000] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.casAdder:gc.time":
+  74.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (4.000, 4.933, 6.000), stdev = 0.799
+  CI (99.9%): [74.000, 74.000] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.4.1, OpenJDK 64-Bit Server VM, 25.0.4.1+1-LTS
+# VM invoker: /Users/jaehyeon/Library/Java/JavaVirtualMachines/temurin-25.0.4.1/Contents/Home/bin/java
+# VM options: -Xms512m -Xmx512m -Djava.util.concurrent.ForkJoinPool.common.parallelism=3
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: research.skew.ControlBenchmark.casAtomic
+# Parameters: (cardinality = 256, distribution = uniform, seed = 20260929, size = 1000000)
+
+# Run progress: 25.00% complete, ETA 00:04:43
+# Fork: 1 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+8.727 ms/op
+# Warmup Iteration   2: 8.444 ms/op
+# Warmup Iteration   3: 8.531 ms/op
+# Warmup Iteration   4: 8.351 ms/op
+# Warmup Iteration   5: 8.189 ms/op
+Iteration   1: 8.291 ms/op
+                 gc.alloc.rate:      1844.152 MB/sec
+                 gc.alloc.rate.norm: 16035228.918 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   2: 8.352 ms/op
+                 gc.alloc.rate:      1830.699 MB/sec
+                 gc.alloc.rate.norm: 16034856.066 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   3: 8.695 ms/op
+                 gc.alloc.rate:      1758.414 MB/sec
+                 gc.alloc.rate.norm: 16034596.376 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   4: 8.473 ms/op
+                 gc.alloc.rate:      1804.492 MB/sec
+                 gc.alloc.rate.norm: 16034698.667 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   5: 8.336 ms/op
+                 gc.alloc.rate:      1834.268 MB/sec
+                 gc.alloc.rate.norm: 16034914.951 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            2.000 ms
+
+
+# Run progress: 27.78% complete, ETA 00:04:32
+# Fork: 2 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+8.786 ms/op
+# Warmup Iteration   2: 8.428 ms/op
+# Warmup Iteration   3: 8.383 ms/op
+# Warmup Iteration   4: 8.418 ms/op
+# Warmup Iteration   5: 8.314 ms/op
+Iteration   1: 8.334 ms/op
+                 gc.alloc.rate:      1834.766 MB/sec
+                 gc.alloc.rate.norm: 16035302.361 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   2: 8.292 ms/op
+                 gc.alloc.rate:      1844.159 MB/sec
+                 gc.alloc.rate.norm: 16035127.738 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   3: 8.256 ms/op
+                 gc.alloc.rate:      1851.904 MB/sec
+                 gc.alloc.rate.norm: 16035084.293 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   4: 8.356 ms/op
+                 gc.alloc.rate:      1829.886 MB/sec
+                 gc.alloc.rate.norm: 16035032.264 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   5: 8.221 ms/op
+                 gc.alloc.rate:      1859.818 MB/sec
+                 gc.alloc.rate.norm: 16035190.699 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            3.000 ms
+
+
+# Run progress: 30.56% complete, ETA 00:04:21
+# Fork: 3 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+8.920 ms/op
+# Warmup Iteration   2: 8.474 ms/op
+# Warmup Iteration   3: 8.432 ms/op
+# Warmup Iteration   4: 8.219 ms/op
+# Warmup Iteration   5: 8.446 ms/op
+Iteration   1: 8.180 ms/op
+                 gc.alloc.rate:      1869.393 MB/sec
+                 gc.alloc.rate.norm: 16035402.258 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   2: 8.249 ms/op
+                 gc.alloc.rate:      1853.552 MB/sec
+                 gc.alloc.rate.norm: 16035169.171 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   3: 8.251 ms/op
+                 gc.alloc.rate:      1853.153 MB/sec
+                 gc.alloc.rate.norm: 16034996.878 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   4: 8.132 ms/op
+                 gc.alloc.rate:      1880.339 MB/sec
+                 gc.alloc.rate.norm: 16035052.800 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   5: 8.345 ms/op
+                 gc.alloc.rate:      1832.207 MB/sec
+                 gc.alloc.rate.norm: 16034953.124 B/op
+                 gc.count:           7.000 counts
+                 gc.time:            3.000 ms
+
+
+
+Result "research.skew.ControlBenchmark.casAtomic":
+  8.318 ±(99.9%) 0.142 ms/op [Average]
+  (min, avg, max) = (8.132, 8.318, 8.695), stdev = 0.133
+  CI (99.9%): [8.175, 8.460] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.casAtomic:gc.alloc.rate":
+  1838.747 ±(99.9%) 30.799 MB/sec [Average]
+  (min, avg, max) = (1758.414, 1838.747, 1880.339), stdev = 28.810
+  CI (99.9%): [1807.947, 1869.546] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.casAtomic:gc.alloc.rate.norm":
+  16035040.438 ±(99.9%) 231.629 B/op [Average]
+  (min, avg, max) = (16034596.376, 16035040.438, 16035402.258), stdev = 216.666
+  CI (99.9%): [16034808.809, 16035272.066] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.casAtomic:gc.count":
+  91.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (6.000, 6.067, 7.000), stdev = 0.258
+  CI (99.9%): [91.000, 91.000] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.casAtomic:gc.time":
+  37.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (2.000, 2.467, 3.000), stdev = 0.516
+  CI (99.9%): [37.000, 37.000] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.4.1, OpenJDK 64-Bit Server VM, 25.0.4.1+1-LTS
+# VM invoker: /Users/jaehyeon/Library/Java/JavaVirtualMachines/temurin-25.0.4.1/Contents/Home/bin/java
+# VM options: -Xms512m -Xmx512m -Djava.util.concurrent.ForkJoinPool.common.parallelism=3
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: research.skew.ControlBenchmark.casAtomic
+# Parameters: (cardinality = 256, distribution = hot50, seed = 20260929, size = 1000000)
+
+# Run progress: 33.33% complete, ETA 00:04:11
+# Fork: 1 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+16.388 ms/op
+# Warmup Iteration   2: 15.766 ms/op
+# Warmup Iteration   3: 15.765 ms/op
+# Warmup Iteration   4: 15.784 ms/op
+# Warmup Iteration   5: 15.666 ms/op
+Iteration   1: 15.807 ms/op
+                 gc.alloc.rate:      967.268 MB/sec
+                 gc.alloc.rate.norm: 16033557.375 B/op
+                 gc.count:           3.000 counts
+                 gc.time:            1.000 ms
+
+Iteration   2: 15.737 ms/op
+                 gc.alloc.rate:      971.484 MB/sec
+                 gc.alloc.rate.norm: 16033422.154 B/op
+                 gc.count:           3.000 counts
+                 gc.time:            1.000 ms
+
+Iteration   3: 15.661 ms/op
+                 gc.alloc.rate:      976.271 MB/sec
+                 gc.alloc.rate.norm: 16033354.585 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   4: 15.638 ms/op
+                 gc.alloc.rate:      977.727 MB/sec
+                 gc.alloc.rate.norm: 16033380.677 B/op
+                 gc.count:           3.000 counts
+                 gc.time:            1.000 ms
+
+Iteration   5: 15.578 ms/op
+                 gc.alloc.rate:      981.424 MB/sec
+                 gc.alloc.rate.norm: 16033453.169 B/op
+                 gc.count:           3.000 counts
+                 gc.time:            1.000 ms
+
+
+# Run progress: 36.11% complete, ETA 00:04:00
+# Fork: 2 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+16.267 ms/op
+# Warmup Iteration   2: 16.151 ms/op
+# Warmup Iteration   3: 16.056 ms/op
+# Warmup Iteration   4: 15.816 ms/op
+# Warmup Iteration   5: 15.842 ms/op
+Iteration   1: 15.972 ms/op
+                 gc.alloc.rate:      957.235 MB/sec
+                 gc.alloc.rate.norm: 16033641.750 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            1.000 ms
+
+Iteration   2: 15.811 ms/op
+                 gc.alloc.rate:      967.002 MB/sec
+                 gc.alloc.rate.norm: 16033609.625 B/op
+                 gc.count:           3.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   3: 15.997 ms/op
+                 gc.alloc.rate:      955.796 MB/sec
+                 gc.alloc.rate.norm: 16033866.125 B/op
+                 gc.count:           3.000 counts
+                 gc.time:            1.000 ms
+
+Iteration   4: 15.820 ms/op
+                 gc.alloc.rate:      966.502 MB/sec
+                 gc.alloc.rate.norm: 16033861.125 B/op
+                 gc.count:           3.000 counts
+                 gc.time:            1.000 ms
+
+Iteration   5: 15.918 ms/op
+                 gc.alloc.rate:      960.498 MB/sec
+                 gc.alloc.rate.norm: 16033760.625 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            2.000 ms
+
+
+# Run progress: 38.89% complete, ETA 00:03:50
+# Fork: 3 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+16.298 ms/op
+# Warmup Iteration   2: 15.902 ms/op
+# Warmup Iteration   3: 16.083 ms/op
+# Warmup Iteration   4: 15.925 ms/op
+# Warmup Iteration   5: 15.873 ms/op
+Iteration   1: 16.012 ms/op
+                 gc.alloc.rate:      954.841 MB/sec
+                 gc.alloc.rate.norm: 16033531.500 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   2: 15.841 ms/op
+                 gc.alloc.rate:      965.198 MB/sec
+                 gc.alloc.rate.norm: 16033897.750 B/op
+                 gc.count:           3.000 counts
+                 gc.time:            1.000 ms
+
+Iteration   3: 15.794 ms/op
+                 gc.alloc.rate:      968.038 MB/sec
+                 gc.alloc.rate.norm: 16033685.375 B/op
+                 gc.count:           3.000 counts
+                 gc.time:            1.000 ms
+
+Iteration   4: 15.907 ms/op
+                 gc.alloc.rate:      961.177 MB/sec
+                 gc.alloc.rate.norm: 16033493.625 B/op
+                 gc.count:           3.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   5: 16.021 ms/op
+                 gc.alloc.rate:      954.307 MB/sec
+                 gc.alloc.rate.norm: 16033636.571 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            1.000 ms
+
+
+
+Result "research.skew.ControlBenchmark.casAtomic":
+  15.834 ±(99.9%) 0.149 ms/op [Average]
+  (min, avg, max) = (15.578, 15.834, 16.021), stdev = 0.139
+  CI (99.9%): [15.686, 15.983] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.casAtomic:gc.alloc.rate":
+  965.651 ±(99.9%) 9.092 MB/sec [Average]
+  (min, avg, max) = (954.307, 965.651, 981.424), stdev = 8.504
+  CI (99.9%): [956.559, 974.743] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.casAtomic:gc.alloc.rate.norm":
+  16033610.135 ±(99.9%) 189.896 B/op [Average]
+  (min, avg, max) = (16033354.585, 16033610.135, 16033897.750), stdev = 177.629
+  CI (99.9%): [16033420.239, 16033800.032] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.casAtomic:gc.count":
+  50.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (3.000, 3.333, 4.000), stdev = 0.488
+  CI (99.9%): [50.000, 50.000] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.casAtomic:gc.time":
+  20.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (1.000, 1.333, 2.000), stdev = 0.488
+  CI (99.9%): [20.000, 20.000] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.4.1, OpenJDK 64-Bit Server VM, 25.0.4.1+1-LTS
+# VM invoker: /Users/jaehyeon/Library/Java/JavaVirtualMachines/temurin-25.0.4.1/Contents/Home/bin/java
+# VM options: -Xms512m -Xmx512m -Djava.util.concurrent.ForkJoinPool.common.parallelism=3
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: research.skew.ControlBenchmark.casAtomic
+# Parameters: (cardinality = 256, distribution = hot90, seed = 20260929, size = 1000000)
+
+# Run progress: 41.67% complete, ETA 00:03:40
+# Fork: 1 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+22.960 ms/op
+# Warmup Iteration   2: 22.832 ms/op
+# Warmup Iteration   3: 22.892 ms/op
+# Warmup Iteration   4: 22.703 ms/op
+# Warmup Iteration   5: 22.985 ms/op
+Iteration   1: 22.752 ms/op
+                 gc.alloc.rate:      671.933 MB/sec
+                 gc.alloc.rate.norm: 16032011.022 B/op
+                 gc.count:           2.000 counts
+                 gc.time:            5.000 ms
+
+Iteration   2: 22.725 ms/op
+                 gc.alloc.rate:      672.732 MB/sec
+                 gc.alloc.rate.norm: 16032154.311 B/op
+                 gc.count:           2.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   3: 22.985 ms/op
+                 gc.alloc.rate:      665.103 MB/sec
+                 gc.alloc.rate.norm: 16031839.091 B/op
+                 gc.count:           2.000 counts
+                 gc.time:            1.000 ms
+
+Iteration   4: 22.549 ms/op
+                 gc.alloc.rate:      677.958 MB/sec
+                 gc.alloc.rate.norm: 16031994.844 B/op
+                 gc.count:           3.000 counts
+                 gc.time:            1.000 ms
+
+Iteration   5: 22.432 ms/op
+                 gc.alloc.rate:      681.535 MB/sec
+                 gc.alloc.rate.norm: 16032983.644 B/op
+                 gc.count:           2.000 counts
+                 gc.time:            1.000 ms
+
+
+# Run progress: 44.44% complete, ETA 00:03:29
+# Fork: 2 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+23.314 ms/op
+# Warmup Iteration   2: 23.012 ms/op
+# Warmup Iteration   3: 23.030 ms/op
+# Warmup Iteration   4: 22.941 ms/op
+# Warmup Iteration   5: 22.997 ms/op
+Iteration   1: 23.179 ms/op
+                 gc.alloc.rate:      659.481 MB/sec
+                 gc.alloc.rate.norm: 16030559.455 B/op
+                 gc.count:           2.000 counts
+                 gc.time:            4.000 ms
+
+Iteration   2: 22.883 ms/op
+                 gc.alloc.rate:      668.065 MB/sec
+                 gc.alloc.rate.norm: 16031853.689 B/op
+                 gc.count:           2.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   3: 22.861 ms/op
+                 gc.alloc.rate:      668.738 MB/sec
+                 gc.alloc.rate.norm: 16031766.044 B/op
+                 gc.count:           2.000 counts
+                 gc.time:            ≈ 0 ms
+
+Iteration   4: 22.794 ms/op
+                 gc.alloc.rate:      670.657 MB/sec
+                 gc.alloc.rate.norm: 16031202.489 B/op
+                 gc.count:           3.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   5: 22.829 ms/op
+                 gc.alloc.rate:      669.673 MB/sec
+                 gc.alloc.rate.norm: 16032235.911 B/op
+                 gc.count:           2.000 counts
+                 gc.time:            1.000 ms
+
+
+# Run progress: 47.22% complete, ETA 00:03:19
+# Fork: 3 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+23.269 ms/op
+# Warmup Iteration   2: 24.280 ms/op
+# Warmup Iteration   3: 22.932 ms/op
+# Warmup Iteration   4: 22.975 ms/op
+# Warmup Iteration   5: 22.668 ms/op
+Iteration   1: 22.783 ms/op
+                 gc.alloc.rate:      671.017 MB/sec
+                 gc.alloc.rate.norm: 16032139.556 B/op
+                 gc.count:           3.000 counts
+                 gc.time:            6.000 ms
+
+Iteration   2: 23.088 ms/op
+                 gc.alloc.rate:      662.123 MB/sec
+                 gc.alloc.rate.norm: 16031637.455 B/op
+                 gc.count:           2.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   3: 22.709 ms/op
+                 gc.alloc.rate:      673.232 MB/sec
+                 gc.alloc.rate.norm: 16032539.200 B/op
+                 gc.count:           2.000 counts
+                 gc.time:            1.000 ms
+
+Iteration   4: 22.794 ms/op
+                 gc.alloc.rate:      670.673 MB/sec
+                 gc.alloc.rate.norm: 16031531.733 B/op
+                 gc.count:           2.000 counts
+                 gc.time:            1.000 ms
+
+Iteration   5: 22.706 ms/op
+                 gc.alloc.rate:      673.266 MB/sec
+                 gc.alloc.rate.norm: 16031440.000 B/op
+                 gc.count:           3.000 counts
+                 gc.time:            1.000 ms
+
+
+
+Result "research.skew.ControlBenchmark.casAtomic":
+  22.805 ±(99.9%) 0.201 ms/op [Average]
+  (min, avg, max) = (22.432, 22.805, 23.179), stdev = 0.188
+  CI (99.9%): [22.604, 23.006] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.casAtomic:gc.alloc.rate":
+  670.413 ±(99.9%) 5.926 MB/sec [Average]
+  (min, avg, max) = (659.481, 670.413, 681.535), stdev = 5.543
+  CI (99.9%): [664.486, 676.339] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.casAtomic:gc.alloc.rate.norm":
+  16031859.230 ±(99.9%) 608.633 B/op [Average]
+  (min, avg, max) = (16030559.455, 16031859.230, 16032983.644), stdev = 569.315
+  CI (99.9%): [16031250.597, 16032467.862] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.casAtomic:gc.count":
+  34.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (2.000, 2.267, 3.000), stdev = 0.458
+  CI (99.9%): [34.000, 34.000] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.casAtomic:gc.time":
+  32.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (≈ 0, 2.133, 6.000), stdev = 1.727
+  CI (99.9%): [32.000, 32.000] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.4.1, OpenJDK 64-Bit Server VM, 25.0.4.1+1-LTS
+# VM invoker: /Users/jaehyeon/Library/Java/JavaVirtualMachines/temurin-25.0.4.1/Contents/Home/bin/java
+# VM options: -Xms512m -Xmx512m -Djava.util.concurrent.ForkJoinPool.common.parallelism=3
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: research.skew.ControlBenchmark.syncAdder
+# Parameters: (cardinality = 256, distribution = uniform, seed = 20260929, size = 1000000)
+
+# Run progress: 50.00% complete, ETA 00:03:09
+# Fork: 1 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+13.367 ms/op
+# Warmup Iteration   2: 13.004 ms/op
+# Warmup Iteration   3: 12.935 ms/op
+# Warmup Iteration   4: 12.983 ms/op
+# Warmup Iteration   5: 12.970 ms/op
+Iteration   1: 12.741 ms/op
+                 gc.alloc.rate:      1200.142 MB/sec
+                 gc.alloc.rate.norm: 16036121.316 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   2: 12.643 ms/op
+                 gc.alloc.rate:      1209.377 MB/sec
+                 gc.alloc.rate.norm: 16035785.700 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   3: 13.159 ms/op
+                 gc.alloc.rate:      1162.080 MB/sec
+                 gc.alloc.rate.norm: 16035836.571 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            1.000 ms
+
+Iteration   4: 12.612 ms/op
+                 gc.alloc.rate:      1212.448 MB/sec
+                 gc.alloc.rate.norm: 16035950.700 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   5: 12.761 ms/op
+                 gc.alloc.rate:      1198.287 MB/sec
+                 gc.alloc.rate.norm: 16035846.684 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            2.000 ms
+
+
+# Run progress: 52.78% complete, ETA 00:02:58
+# Fork: 2 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+13.341 ms/op
+# Warmup Iteration   2: 12.906 ms/op
+# Warmup Iteration   3: 13.268 ms/op
+# Warmup Iteration   4: 13.120 ms/op
+# Warmup Iteration   5: 12.910 ms/op
+Iteration   1: 12.773 ms/op
+                 gc.alloc.rate:      1197.198 MB/sec
+                 gc.alloc.rate.norm: 16036654.785 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   2: 12.603 ms/op
+                 gc.alloc.rate:      1213.351 MB/sec
+                 gc.alloc.rate.norm: 16036604.200 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            1.000 ms
+
+Iteration   3: 12.646 ms/op
+                 gc.alloc.rate:      1209.195 MB/sec
+                 gc.alloc.rate.norm: 16036693.600 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   4: 12.611 ms/op
+                 gc.alloc.rate:      1212.612 MB/sec
+                 gc.alloc.rate.norm: 16036728.300 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   5: 12.724 ms/op
+                 gc.alloc.rate:      1201.752 MB/sec
+                 gc.alloc.rate.norm: 16036385.400 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            2.000 ms
+
+
+# Run progress: 55.56% complete, ETA 00:02:47
+# Fork: 3 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+13.637 ms/op
+# Warmup Iteration   2: 12.688 ms/op
+# Warmup Iteration   3: 12.968 ms/op
+# Warmup Iteration   4: 12.971 ms/op
+# Warmup Iteration   5: 12.719 ms/op
+Iteration   1: 13.131 ms/op
+                 gc.alloc.rate:      1164.536 MB/sec
+                 gc.alloc.rate.norm: 16036310.442 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   2: 12.707 ms/op
+                 gc.alloc.rate:      1203.425 MB/sec
+                 gc.alloc.rate.norm: 16036686.400 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   3: 12.622 ms/op
+                 gc.alloc.rate:      1211.511 MB/sec
+                 gc.alloc.rate.norm: 16036491.100 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   4: 12.950 ms/op
+                 gc.alloc.rate:      1180.807 MB/sec
+                 gc.alloc.rate.norm: 16036237.538 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   5: 12.730 ms/op
+                 gc.alloc.rate:      1201.160 MB/sec
+                 gc.alloc.rate.norm: 16035803.544 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            1.000 ms
+
+
+
+Result "research.skew.ControlBenchmark.syncAdder":
+  12.761 ±(99.9%) 0.192 ms/op [Average]
+  (min, avg, max) = (12.603, 12.761, 13.159), stdev = 0.180
+  CI (99.9%): [12.569, 12.953] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.syncAdder:gc.alloc.rate":
+  1198.525 ±(99.9%) 17.741 MB/sec [Average]
+  (min, avg, max) = (1162.080, 1198.525, 1213.351), stdev = 16.595
+  CI (99.9%): [1180.784, 1216.267] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.syncAdder:gc.alloc.rate.norm":
+  16036275.752 ±(99.9%) 386.540 B/op [Average]
+  (min, avg, max) = (16035785.700, 16036275.752, 16036728.300), stdev = 361.569
+  CI (99.9%): [16035889.213, 16036662.292] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.syncAdder:gc.count":
+  60.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (4.000, 4.000, 4.000), stdev = 0.001
+  CI (99.9%): [60.000, 60.000] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.syncAdder:gc.time":
+  27.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (1.000, 1.800, 2.000), stdev = 0.414
+  CI (99.9%): [27.000, 27.000] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.4.1, OpenJDK 64-Bit Server VM, 25.0.4.1+1-LTS
+# VM invoker: /Users/jaehyeon/Library/Java/JavaVirtualMachines/temurin-25.0.4.1/Contents/Home/bin/java
+# VM options: -Xms512m -Xmx512m -Djava.util.concurrent.ForkJoinPool.common.parallelism=3
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: research.skew.ControlBenchmark.syncAdder
+# Parameters: (cardinality = 256, distribution = hot50, seed = 20260929, size = 1000000)
+
+# Run progress: 58.33% complete, ETA 00:02:37
+# Fork: 1 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+47.745 ms/op
+# Warmup Iteration   2: 46.745 ms/op
+# Warmup Iteration   3: 45.822 ms/op
+# Warmup Iteration   4: 45.963 ms/op
+# Warmup Iteration   5: 46.307 ms/op
+Iteration   1: 46.458 ms/op
+                 gc.alloc.rate:      329.137 MB/sec
+                 gc.alloc.rate.norm: 16035322.909 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   2: 45.900 ms/op
+                 gc.alloc.rate:      333.129 MB/sec
+                 gc.alloc.rate.norm: 16035481.091 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   3: 45.960 ms/op
+                 gc.alloc.rate:      332.705 MB/sec
+                 gc.alloc.rate.norm: 16035430.909 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   4: 46.009 ms/op
+                 gc.alloc.rate:      332.342 MB/sec
+                 gc.alloc.rate.norm: 16034875.636 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   5: 46.113 ms/op
+                 gc.alloc.rate:      331.605 MB/sec
+                 gc.alloc.rate.norm: 16035780.000 B/op
+                 gc.count:           2.000 counts
+                 gc.time:            5.000 ms
+
+
+# Run progress: 61.11% complete, ETA 00:02:26
+# Fork: 2 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+45.837 ms/op
+# Warmup Iteration   2: 44.786 ms/op
+# Warmup Iteration   3: 44.154 ms/op
+# Warmup Iteration   4: 44.715 ms/op
+# Warmup Iteration   5: 44.172 ms/op
+Iteration   1: 44.701 ms/op
+                 gc.alloc.rate:      342.085 MB/sec
+                 gc.alloc.rate.norm: 16035688.000 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   2: 44.229 ms/op
+                 gc.alloc.rate:      345.730 MB/sec
+                 gc.alloc.rate.norm: 16035326.261 B/op
+                 gc.count:           2.000 counts
+                 gc.time:            5.000 ms
+
+Iteration   3: 44.401 ms/op
+                 gc.alloc.rate:      344.379 MB/sec
+                 gc.alloc.rate.norm: 16034656.696 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   4: 43.900 ms/op
+                 gc.alloc.rate:      348.326 MB/sec
+                 gc.alloc.rate.norm: 16035620.522 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   5: 43.864 ms/op
+                 gc.alloc.rate:      348.590 MB/sec
+                 gc.alloc.rate.norm: 16035714.087 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            3.000 ms
+
+
+# Run progress: 63.89% complete, ETA 00:02:16
+# Fork: 3 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+45.249 ms/op
+# Warmup Iteration   2: 44.643 ms/op
+# Warmup Iteration   3: 44.445 ms/op
+# Warmup Iteration   4: 43.926 ms/op
+# Warmup Iteration   5: 44.685 ms/op
+Iteration   1: 44.096 ms/op
+                 gc.alloc.rate:      346.785 MB/sec
+                 gc.alloc.rate.norm: 16035967.304 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   2: 44.824 ms/op
+                 gc.alloc.rate:      341.142 MB/sec
+                 gc.alloc.rate.norm: 16035518.261 B/op
+                 gc.count:           2.000 counts
+                 gc.time:            5.000 ms
+
+Iteration   3: 44.527 ms/op
+                 gc.alloc.rate:      343.408 MB/sec
+                 gc.alloc.rate.norm: 16035017.391 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   4: 44.547 ms/op
+                 gc.alloc.rate:      343.265 MB/sec
+                 gc.alloc.rate.norm: 16035554.435 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   5: 44.932 ms/op
+                 gc.alloc.rate:      340.320 MB/sec
+                 gc.alloc.rate.norm: 16035689.043 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+
+
+Result "research.skew.ControlBenchmark.syncAdder":
+  44.964 ±(99.9%) 0.944 ms/op [Average]
+  (min, avg, max) = (43.864, 44.964, 46.458), stdev = 0.883
+  CI (99.9%): [44.020, 45.908] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.syncAdder:gc.alloc.rate":
+  340.196 ±(99.9%) 7.092 MB/sec [Average]
+  (min, avg, max) = (329.137, 340.196, 348.590), stdev = 6.634
+  CI (99.9%): [333.104, 347.289] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.syncAdder:gc.alloc.rate.norm":
+  16035442.836 ±(99.9%) 381.525 B/op [Average]
+  (min, avg, max) = (16034656.696, 16035442.836, 16035967.304), stdev = 356.879
+  CI (99.9%): [16035061.311, 16035824.362] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.syncAdder:gc.count":
+  18.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (1.000, 1.200, 2.000), stdev = 0.414
+  CI (99.9%): [18.000, 18.000] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.syncAdder:gc.time":
+  45.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (2.000, 3.000, 5.000), stdev = 1.134
+  CI (99.9%): [45.000, 45.000] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.4.1, OpenJDK 64-Bit Server VM, 25.0.4.1+1-LTS
+# VM invoker: /Users/jaehyeon/Library/Java/JavaVirtualMachines/temurin-25.0.4.1/Contents/Home/bin/java
+# VM options: -Xms512m -Xmx512m -Djava.util.concurrent.ForkJoinPool.common.parallelism=3
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: research.skew.ControlBenchmark.syncAdder
+# Parameters: (cardinality = 256, distribution = hot90, seed = 20260929, size = 1000000)
+
+# Run progress: 66.67% complete, ETA 00:02:05
+# Fork: 1 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+43.180 ms/op
+# Warmup Iteration   2: 43.615 ms/op
+# Warmup Iteration   3: 42.445 ms/op
+# Warmup Iteration   4: 41.875 ms/op
+# Warmup Iteration   5: 41.606 ms/op
+Iteration   1: 41.986 ms/op
+                 gc.alloc.rate:      364.211 MB/sec
+                 gc.alloc.rate.norm: 16036170.333 B/op
+                 gc.count:           2.000 counts
+                 gc.time:            4.000 ms
+
+Iteration   2: 41.996 ms/op
+                 gc.alloc.rate:      364.144 MB/sec
+                 gc.alloc.rate.norm: 16037041.920 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   3: 43.412 ms/op
+                 gc.alloc.rate:      352.273 MB/sec
+                 gc.alloc.rate.norm: 16037113.333 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   4: 43.845 ms/op
+                 gc.alloc.rate:      348.783 MB/sec
+                 gc.alloc.rate.norm: 16036452.000 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   5: 42.473 ms/op
+                 gc.alloc.rate:      360.043 MB/sec
+                 gc.alloc.rate.norm: 16036587.667 B/op
+                 gc.count:           2.000 counts
+                 gc.time:            4.000 ms
+
+
+# Run progress: 69.44% complete, ETA 00:01:55
+# Fork: 2 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+46.923 ms/op
+# Warmup Iteration   2: 46.034 ms/op
+# Warmup Iteration   3: 45.571 ms/op
+# Warmup Iteration   4: 45.349 ms/op
+# Warmup Iteration   5: 46.154 ms/op
+Iteration   1: 46.501 ms/op
+                 gc.alloc.rate:      328.859 MB/sec
+                 gc.alloc.rate.norm: 16036708.000 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   2: 46.612 ms/op
+                 gc.alloc.rate:      328.072 MB/sec
+                 gc.alloc.rate.norm: 16036808.364 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   3: 47.497 ms/op
+                 gc.alloc.rate:      321.964 MB/sec
+                 gc.alloc.rate.norm: 16036761.455 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   4: 46.652 ms/op
+                 gc.alloc.rate:      327.799 MB/sec
+                 gc.alloc.rate.norm: 16036995.273 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   5: 46.829 ms/op
+                 gc.alloc.rate:      326.548 MB/sec
+                 gc.alloc.rate.norm: 16036445.091 B/op
+                 gc.count:           2.000 counts
+                 gc.time:            4.000 ms
+
+
+# Run progress: 72.22% complete, ETA 00:01:45
+# Fork: 3 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+45.206 ms/op
+# Warmup Iteration   2: 42.917 ms/op
+# Warmup Iteration   3: 44.670 ms/op
+# Warmup Iteration   4: 43.863 ms/op
+# Warmup Iteration   5: 43.010 ms/op
+Iteration   1: 46.505 ms/op
+                 gc.alloc.rate:      328.835 MB/sec
+                 gc.alloc.rate.norm: 16036754.545 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   2: 44.467 ms/op
+                 gc.alloc.rate:      343.898 MB/sec
+                 gc.alloc.rate.norm: 16036694.261 B/op
+                 gc.count:           2.000 counts
+                 gc.time:            5.000 ms
+
+Iteration   3: 44.673 ms/op
+                 gc.alloc.rate:      342.322 MB/sec
+                 gc.alloc.rate.norm: 16036885.565 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   4: 43.780 ms/op
+                 gc.alloc.rate:      349.307 MB/sec
+                 gc.alloc.rate.norm: 16037034.667 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   5: 44.575 ms/op
+                 gc.alloc.rate:      343.075 MB/sec
+                 gc.alloc.rate.norm: 16037060.870 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+
+
+Result "research.skew.ControlBenchmark.syncAdder":
+  44.787 ±(99.9%) 2.003 ms/op [Average]
+  (min, avg, max) = (41.986, 44.787, 47.497), stdev = 1.874
+  CI (99.9%): [42.784, 46.790] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.syncAdder:gc.alloc.rate":
+  342.009 ±(99.9%) 15.389 MB/sec [Average]
+  (min, avg, max) = (321.964, 342.009, 364.211), stdev = 14.395
+  CI (99.9%): [326.620, 357.398] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.syncAdder:gc.alloc.rate.norm":
+  16036767.556 ±(99.9%) 288.757 B/op [Average]
+  (min, avg, max) = (16036170.333, 16036767.556, 16037113.333), stdev = 270.104
+  CI (99.9%): [16036478.799, 16037056.314] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.syncAdder:gc.count":
+  19.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (1.000, 1.267, 2.000), stdev = 0.458
+  CI (99.9%): [19.000, 19.000] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.syncAdder:gc.time":
+  42.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (2.000, 2.800, 5.000), stdev = 1.014
+  CI (99.9%): [42.000, 42.000] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.4.1, OpenJDK 64-Bit Server VM, 25.0.4.1+1-LTS
+# VM invoker: /Users/jaehyeon/Library/Java/JavaVirtualMachines/temurin-25.0.4.1/Contents/Home/bin/java
+# VM options: -Xms512m -Xmx512m -Djava.util.concurrent.ForkJoinPool.common.parallelism=3
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: research.skew.ControlBenchmark.syncLong
+# Parameters: (cardinality = 256, distribution = uniform, seed = 20260929, size = 1000000)
+
+# Run progress: 75.00% complete, ETA 00:01:34
+# Fork: 1 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+12.899 ms/op
+# Warmup Iteration   2: 12.290 ms/op
+# Warmup Iteration   3: 12.370 ms/op
+# Warmup Iteration   4: 12.378 ms/op
+# Warmup Iteration   5: 12.158 ms/op
+Iteration   1: 12.457 ms/op
+                 gc.alloc.rate:      1227.447 MB/sec
+                 gc.alloc.rate.norm: 16034562.568 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   2: 12.409 ms/op
+                 gc.alloc.rate:      1232.150 MB/sec
+                 gc.alloc.rate.norm: 16034500.642 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            1.000 ms
+
+Iteration   3: 12.169 ms/op
+                 gc.alloc.rate:      1256.539 MB/sec
+                 gc.alloc.rate.norm: 16034680.578 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   4: 12.303 ms/op
+                 gc.alloc.rate:      1242.800 MB/sec
+                 gc.alloc.rate.norm: 16034698.313 B/op
+                 gc.count:           5.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   5: 12.573 ms/op
+                 gc.alloc.rate:      1216.084 MB/sec
+                 gc.alloc.rate.norm: 16034424.700 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            2.000 ms
+
+
+# Run progress: 77.78% complete, ETA 00:01:24
+# Fork: 2 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+12.525 ms/op
+# Warmup Iteration   2: 12.125 ms/op
+# Warmup Iteration   3: 12.582 ms/op
+# Warmup Iteration   4: 12.286 ms/op
+# Warmup Iteration   5: 12.139 ms/op
+Iteration   1: 12.426 ms/op
+                 gc.alloc.rate:      1230.567 MB/sec
+                 gc.alloc.rate.norm: 16035126.815 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            1.000 ms
+
+Iteration   2: 12.053 ms/op
+                 gc.alloc.rate:      1268.620 MB/sec
+                 gc.alloc.rate.norm: 16035120.190 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   3: 12.394 ms/op
+                 gc.alloc.rate:      1233.688 MB/sec
+                 gc.alloc.rate.norm: 16035120.585 B/op
+                 gc.count:           5.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   4: 12.458 ms/op
+                 gc.alloc.rate:      1227.418 MB/sec
+                 gc.alloc.rate.norm: 16035192.000 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   5: 12.259 ms/op
+                 gc.alloc.rate:      1247.260 MB/sec
+                 gc.alloc.rate.norm: 16034714.537 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            2.000 ms
+
+
+# Run progress: 80.56% complete, ETA 00:01:13
+# Fork: 3 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+12.963 ms/op
+# Warmup Iteration   2: 12.618 ms/op
+# Warmup Iteration   3: 12.545 ms/op
+# Warmup Iteration   4: 12.244 ms/op
+# Warmup Iteration   5: 12.288 ms/op
+Iteration   1: 12.177 ms/op
+                 gc.alloc.rate:      1255.684 MB/sec
+                 gc.alloc.rate.norm: 16034823.325 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            1.000 ms
+
+Iteration   2: 12.172 ms/op
+                 gc.alloc.rate:      1256.243 MB/sec
+                 gc.alloc.rate.norm: 16034833.735 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   3: 12.313 ms/op
+                 gc.alloc.rate:      1241.768 MB/sec
+                 gc.alloc.rate.norm: 16034654.146 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   4: 12.468 ms/op
+                 gc.alloc.rate:      1226.425 MB/sec
+                 gc.alloc.rate.norm: 16034937.580 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   5: 12.090 ms/op
+                 gc.alloc.rate:      1264.672 MB/sec
+                 gc.alloc.rate.norm: 16034575.524 B/op
+                 gc.count:           5.000 counts
+                 gc.time:            2.000 ms
+
+
+
+Result "research.skew.ControlBenchmark.syncLong":
+  12.315 ±(99.9%) 0.167 ms/op [Average]
+  (min, avg, max) = (12.053, 12.315, 12.573), stdev = 0.156
+  CI (99.9%): [12.148, 12.482] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.syncLong:gc.alloc.rate":
+  1241.824 ±(99.9%) 16.873 MB/sec [Average]
+  (min, avg, max) = (1216.084, 1241.824, 1268.620), stdev = 15.783
+  CI (99.9%): [1224.951, 1258.697] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.syncLong:gc.alloc.rate.norm":
+  16034797.683 ±(99.9%) 267.526 B/op [Average]
+  (min, avg, max) = (16034424.700, 16034797.683, 16035192.000), stdev = 250.244
+  CI (99.9%): [16034530.157, 16035065.208] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.syncLong:gc.count":
+  63.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (4.000, 4.200, 5.000), stdev = 0.414
+  CI (99.9%): [63.000, 63.000] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.syncLong:gc.time":
+  27.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (1.000, 1.800, 2.000), stdev = 0.414
+  CI (99.9%): [27.000, 27.000] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.4.1, OpenJDK 64-Bit Server VM, 25.0.4.1+1-LTS
+# VM invoker: /Users/jaehyeon/Library/Java/JavaVirtualMachines/temurin-25.0.4.1/Contents/Home/bin/java
+# VM options: -Xms512m -Xmx512m -Djava.util.concurrent.ForkJoinPool.common.parallelism=3
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: research.skew.ControlBenchmark.syncLong
+# Parameters: (cardinality = 256, distribution = hot50, seed = 20260929, size = 1000000)
+
+# Run progress: 83.33% complete, ETA 00:01:03
+# Fork: 1 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+46.156 ms/op
+# Warmup Iteration   2: 44.225 ms/op
+# Warmup Iteration   3: 43.742 ms/op
+# Warmup Iteration   4: 45.081 ms/op
+# Warmup Iteration   5: 44.784 ms/op
+Iteration   1: 44.327 ms/op
+                 gc.alloc.rate:      344.918 MB/sec
+                 gc.alloc.rate.norm: 16033552.696 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   2: 44.957 ms/op
+                 gc.alloc.rate:      340.086 MB/sec
+                 gc.alloc.rate.norm: 16033339.478 B/op
+                 gc.count:           2.000 counts
+                 gc.time:            5.000 ms
+
+Iteration   3: 44.409 ms/op
+                 gc.alloc.rate:      344.281 MB/sec
+                 gc.alloc.rate.norm: 16033179.826 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   4: 44.889 ms/op
+                 gc.alloc.rate:      340.611 MB/sec
+                 gc.alloc.rate.norm: 16033855.652 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   5: 42.940 ms/op
+                 gc.alloc.rate:      356.056 MB/sec
+                 gc.alloc.rate.norm: 16033630.667 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+
+# Run progress: 86.11% complete, ETA 00:00:52
+# Fork: 2 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+45.640 ms/op
+# Warmup Iteration   2: 44.766 ms/op
+# Warmup Iteration   3: 45.106 ms/op
+# Warmup Iteration   4: 45.696 ms/op
+# Warmup Iteration   5: 45.457 ms/op
+Iteration   1: 44.679 ms/op
+                 gc.alloc.rate:      342.213 MB/sec
+                 gc.alloc.rate.norm: 16033717.565 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   2: 44.775 ms/op
+                 gc.alloc.rate:      341.480 MB/sec
+                 gc.alloc.rate.norm: 16033808.000 B/op
+                 gc.count:           2.000 counts
+                 gc.time:            6.000 ms
+
+Iteration   3: 45.900 ms/op
+                 gc.alloc.rate:      333.095 MB/sec
+                 gc.alloc.rate.norm: 16033004.364 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   4: 44.512 ms/op
+                 gc.alloc.rate:      343.491 MB/sec
+                 gc.alloc.rate.norm: 16033620.522 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   5: 44.352 ms/op
+                 gc.alloc.rate:      344.721 MB/sec
+                 gc.alloc.rate.norm: 16033490.435 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+
+# Run progress: 88.89% complete, ETA 00:00:42
+# Fork: 3 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+45.713 ms/op
+# Warmup Iteration   2: 44.938 ms/op
+# Warmup Iteration   3: 44.789 ms/op
+# Warmup Iteration   4: 43.788 ms/op
+# Warmup Iteration   5: 43.949 ms/op
+Iteration   1: 43.903 ms/op
+                 gc.alloc.rate:      348.247 MB/sec
+                 gc.alloc.rate.norm: 16033236.522 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   2: 45.523 ms/op
+                 gc.alloc.rate:      335.858 MB/sec
+                 gc.alloc.rate.norm: 16033332.174 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   3: 44.757 ms/op
+                 gc.alloc.rate:      341.596 MB/sec
+                 gc.alloc.rate.norm: 16032864.000 B/op
+                 gc.count:           2.000 counts
+                 gc.time:            5.000 ms
+
+Iteration   4: 45.236 ms/op
+                 gc.alloc.rate:      337.992 MB/sec
+                 gc.alloc.rate.norm: 16033393.739 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   5: 44.730 ms/op
+                 gc.alloc.rate:      341.811 MB/sec
+                 gc.alloc.rate.norm: 16033705.739 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+
+
+Result "research.skew.ControlBenchmark.syncLong":
+  44.659 ±(99.9%) 0.734 ms/op [Average]
+  (min, avg, max) = (42.940, 44.659, 45.900), stdev = 0.687
+  CI (99.9%): [43.925, 45.394] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.syncLong:gc.alloc.rate":
+  342.430 ±(99.9%) 5.688 MB/sec [Average]
+  (min, avg, max) = (333.095, 342.430, 356.056), stdev = 5.321
+  CI (99.9%): [336.742, 348.119] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.syncLong:gc.alloc.rate.norm":
+  16033448.759 ±(99.9%) 312.128 B/op [Average]
+  (min, avg, max) = (16032864.000, 16033448.759, 16033855.652), stdev = 291.964
+  CI (99.9%): [16033136.631, 16033760.886] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.syncLong:gc.count":
+  18.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (1.000, 1.200, 2.000), stdev = 0.414
+  CI (99.9%): [18.000, 18.000] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.syncLong:gc.time":
+  45.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (2.000, 3.000, 6.000), stdev = 1.309
+  CI (99.9%): [45.000, 45.000] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.4.1, OpenJDK 64-Bit Server VM, 25.0.4.1+1-LTS
+# VM invoker: /Users/jaehyeon/Library/Java/JavaVirtualMachines/temurin-25.0.4.1/Contents/Home/bin/java
+# VM options: -Xms512m -Xmx512m -Djava.util.concurrent.ForkJoinPool.common.parallelism=3
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: research.skew.ControlBenchmark.syncLong
+# Parameters: (cardinality = 256, distribution = hot90, seed = 20260929, size = 1000000)
+
+# Run progress: 91.67% complete, ETA 00:00:31
+# Fork: 1 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+88.712 ms/op
+# Warmup Iteration   2: 86.738 ms/op
+# Warmup Iteration   3: 72.430 ms/op
+# Warmup Iteration   4: 75.199 ms/op
+# Warmup Iteration   5: 98.883 ms/op
+Iteration   1: 94.395 ms/op
+                 gc.alloc.rate:      161.988 MB/sec
+                 gc.alloc.rate.norm: 16035200.727 B/op
+                 gc.count:           ≈ 0 counts
+
+Iteration   2: 88.247 ms/op
+                 gc.alloc.rate:      173.272 MB/sec
+                 gc.alloc.rate.norm: 16035466.000 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   3: 89.680 ms/op
+                 gc.alloc.rate:      170.505 MB/sec
+                 gc.alloc.rate.norm: 16034946.000 B/op
+                 gc.count:           ≈ 0 counts
+
+Iteration   4: 87.852 ms/op
+                 gc.alloc.rate:      174.053 MB/sec
+                 gc.alloc.rate.norm: 16034976.667 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   5: 88.344 ms/op
+                 gc.alloc.rate:      173.079 MB/sec
+                 gc.alloc.rate.norm: 16034908.923 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+
+# Run progress: 94.44% complete, ETA 00:00:21
+# Fork: 2 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+87.176 ms/op
+# Warmup Iteration   2: 82.515 ms/op
+# Warmup Iteration   3: 65.230 ms/op
+# Warmup Iteration   4: 65.900 ms/op
+# Warmup Iteration   5: 80.260 ms/op
+Iteration   1: 93.150 ms/op
+                 gc.alloc.rate:      164.153 MB/sec
+                 gc.alloc.rate.norm: 16035221.091 B/op
+                 gc.count:           ≈ 0 counts
+
+Iteration   2: 73.641 ms/op
+                 gc.alloc.rate:      207.634 MB/sec
+                 gc.alloc.rate.norm: 16034684.000 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   3: 107.823 ms/op
+                 gc.alloc.rate:      141.813 MB/sec
+                 gc.alloc.rate.norm: 16034748.800 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   4: 73.010 ms/op
+                 gc.alloc.rate:      209.436 MB/sec
+                 gc.alloc.rate.norm: 16035283.429 B/op
+                 gc.count:           ≈ 0 counts
+
+Iteration   5: 87.081 ms/op
+                 gc.alloc.rate:      175.587 MB/sec
+                 gc.alloc.rate.norm: 16034771.333 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+
+# Run progress: 97.22% complete, ETA 00:00:10
+# Fork: 3 of 3
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/jaehyeon/Documents/Obsidian%20Vault/2026/04.%ed%98%b8%ec%84%9c%eb%8c%80%ed%95%99%ea%b5%90/11.%ec%b0%a8%ec%84%b8%eb%8c%80%ec%bb%b4%ed%93%a8%ed%8c%85%ed%95%99%ed%9a%8c%eb%85%bc%eb%ac%b8/JavaStream_%ed%82%a4%ed%8e%b8%ed%96%a5/.deps/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: Input: n=1000000, keys=256, poolParallelism=3, availableProcessors=10
+85.531 ms/op
+# Warmup Iteration   2: 82.624 ms/op
+# Warmup Iteration   3: 76.378 ms/op
+# Warmup Iteration   4: 92.664 ms/op
+# Warmup Iteration   5: 95.153 ms/op
+Iteration   1: 71.993 ms/op
+                 gc.alloc.rate:      212.383 MB/sec
+                 gc.alloc.rate.norm: 16034265.600 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   2: 103.353 ms/op
+                 gc.alloc.rate:      147.953 MB/sec
+                 gc.alloc.rate.norm: 16035377.455 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            3.000 ms
+
+Iteration   3: 81.214 ms/op
+                 gc.alloc.rate:      188.271 MB/sec
+                 gc.alloc.rate.norm: 16034375.385 B/op
+                 gc.count:           ≈ 0 counts
+
+Iteration   4: 82.491 ms/op
+                 gc.alloc.rate:      185.363 MB/sec
+                 gc.alloc.rate.norm: 16034808.000 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   5: 93.621 ms/op
+                 gc.alloc.rate:      163.319 MB/sec
+                 gc.alloc.rate.norm: 16034781.333 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+
+
+Result "research.skew.ControlBenchmark.syncLong":
+  87.726 ±(99.9%) 11.043 ms/op [Average]
+  (min, avg, max) = (71.993, 87.726, 107.823), stdev = 10.330
+  CI (99.9%): [76.683, 98.769] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.syncLong:gc.alloc.rate":
+  176.587 ±(99.9%) 22.458 MB/sec [Average]
+  (min, avg, max) = (141.813, 176.587, 212.383), stdev = 21.008
+  CI (99.9%): [154.129, 199.046] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.syncLong:gc.alloc.rate.norm":
+  16034920.983 ±(99.9%) 369.963 B/op [Average]
+  (min, avg, max) = (16034265.600, 16034920.983, 16035466.000), stdev = 346.064
+  CI (99.9%): [16034551.019, 16035290.946] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.syncLong:gc.count":
+  10.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (≈ 0, 0.667, 1.000), stdev = 0.488
+  CI (99.9%): [10.000, 10.000] (assumes normal distribution)
+
+Secondary result "research.skew.ControlBenchmark.syncLong:gc.time":
+  23.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (≈ 0, 1.533, 3.000), stdev = 1.187
+  CI (99.9%): [23.000, 23.000] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:06:20
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                                      (cardinality)  (distribution)    (seed)   (size)  Mode  Cnt         Score      Error   Units
+ControlBenchmark.casAdder                                256         uniform  20260929  1000000  avgt   15         6.659 ±    0.143   ms/op
+ControlBenchmark.casAdder:gc.alloc.rate                  256         uniform  20260929  1000000  avgt   15      2318.733 ±   48.899  MB/sec
+ControlBenchmark.casAdder:gc.alloc.rate.norm             256         uniform  20260929  1000000  avgt   15  16185831.389 ±  577.500    B/op
+ControlBenchmark.casAdder:gc.count                       256         uniform  20260929  1000000  avgt   15       117.000             counts
+ControlBenchmark.casAdder:gc.time                        256         uniform  20260929  1000000  avgt   15        50.000                 ms
+ControlBenchmark.casAdder                                256           hot50  20260929  1000000  avgt   15         5.325 ±    0.221   ms/op
+ControlBenchmark.casAdder:gc.alloc.rate                  256           hot50  20260929  1000000  avgt   15      2902.916 ±  117.912  MB/sec
+ControlBenchmark.casAdder:gc.alloc.rate.norm             256           hot50  20260929  1000000  avgt   15  16187928.886 ± 1131.216    B/op
+ControlBenchmark.casAdder:gc.count                       256           hot50  20260929  1000000  avgt   15       145.000             counts
+ControlBenchmark.casAdder:gc.time                        256           hot50  20260929  1000000  avgt   15        56.000                 ms
+ControlBenchmark.casAdder                                256           hot90  20260929  1000000  avgt   15         3.997 ±    0.445   ms/op
+ControlBenchmark.casAdder:gc.alloc.rate                  256           hot90  20260929  1000000  avgt   15      3877.117 ±  439.379  MB/sec
+ControlBenchmark.casAdder:gc.alloc.rate.norm             256           hot90  20260929  1000000  avgt   15  16083005.232 ± 2751.706    B/op
+ControlBenchmark.casAdder:gc.count                       256           hot90  20260929  1000000  avgt   15       193.000             counts
+ControlBenchmark.casAdder:gc.time                        256           hot90  20260929  1000000  avgt   15        74.000                 ms
+ControlBenchmark.casAtomic                               256         uniform  20260929  1000000  avgt   15         8.318 ±    0.142   ms/op
+ControlBenchmark.casAtomic:gc.alloc.rate                 256         uniform  20260929  1000000  avgt   15      1838.747 ±   30.799  MB/sec
+ControlBenchmark.casAtomic:gc.alloc.rate.norm            256         uniform  20260929  1000000  avgt   15  16035040.438 ±  231.629    B/op
+ControlBenchmark.casAtomic:gc.count                      256         uniform  20260929  1000000  avgt   15        91.000             counts
+ControlBenchmark.casAtomic:gc.time                       256         uniform  20260929  1000000  avgt   15        37.000                 ms
+ControlBenchmark.casAtomic                               256           hot50  20260929  1000000  avgt   15        15.834 ±    0.149   ms/op
+ControlBenchmark.casAtomic:gc.alloc.rate                 256           hot50  20260929  1000000  avgt   15       965.651 ±    9.092  MB/sec
+ControlBenchmark.casAtomic:gc.alloc.rate.norm            256           hot50  20260929  1000000  avgt   15  16033610.135 ±  189.896    B/op
+ControlBenchmark.casAtomic:gc.count                      256           hot50  20260929  1000000  avgt   15        50.000             counts
+ControlBenchmark.casAtomic:gc.time                       256           hot50  20260929  1000000  avgt   15        20.000                 ms
+ControlBenchmark.casAtomic                               256           hot90  20260929  1000000  avgt   15        22.805 ±    0.201   ms/op
+ControlBenchmark.casAtomic:gc.alloc.rate                 256           hot90  20260929  1000000  avgt   15       670.413 ±    5.926  MB/sec
+ControlBenchmark.casAtomic:gc.alloc.rate.norm            256           hot90  20260929  1000000  avgt   15  16031859.230 ±  608.633    B/op
+ControlBenchmark.casAtomic:gc.count                      256           hot90  20260929  1000000  avgt   15        34.000             counts
+ControlBenchmark.casAtomic:gc.time                       256           hot90  20260929  1000000  avgt   15        32.000                 ms
+ControlBenchmark.syncAdder                               256         uniform  20260929  1000000  avgt   15        12.761 ±    0.192   ms/op
+ControlBenchmark.syncAdder:gc.alloc.rate                 256         uniform  20260929  1000000  avgt   15      1198.525 ±   17.741  MB/sec
+ControlBenchmark.syncAdder:gc.alloc.rate.norm            256         uniform  20260929  1000000  avgt   15  16036275.752 ±  386.540    B/op
+ControlBenchmark.syncAdder:gc.count                      256         uniform  20260929  1000000  avgt   15        60.000             counts
+ControlBenchmark.syncAdder:gc.time                       256         uniform  20260929  1000000  avgt   15        27.000                 ms
+ControlBenchmark.syncAdder                               256           hot50  20260929  1000000  avgt   15        44.964 ±    0.944   ms/op
+ControlBenchmark.syncAdder:gc.alloc.rate                 256           hot50  20260929  1000000  avgt   15       340.196 ±    7.092  MB/sec
+ControlBenchmark.syncAdder:gc.alloc.rate.norm            256           hot50  20260929  1000000  avgt   15  16035442.836 ±  381.525    B/op
+ControlBenchmark.syncAdder:gc.count                      256           hot50  20260929  1000000  avgt   15        18.000             counts
+ControlBenchmark.syncAdder:gc.time                       256           hot50  20260929  1000000  avgt   15        45.000                 ms
+ControlBenchmark.syncAdder                               256           hot90  20260929  1000000  avgt   15        44.787 ±    2.003   ms/op
+ControlBenchmark.syncAdder:gc.alloc.rate                 256           hot90  20260929  1000000  avgt   15       342.009 ±   15.389  MB/sec
+ControlBenchmark.syncAdder:gc.alloc.rate.norm            256           hot90  20260929  1000000  avgt   15  16036767.556 ±  288.757    B/op
+ControlBenchmark.syncAdder:gc.count                      256           hot90  20260929  1000000  avgt   15        19.000             counts
+ControlBenchmark.syncAdder:gc.time                       256           hot90  20260929  1000000  avgt   15        42.000                 ms
+ControlBenchmark.syncLong                                256         uniform  20260929  1000000  avgt   15        12.315 ±    0.167   ms/op
+ControlBenchmark.syncLong:gc.alloc.rate                  256         uniform  20260929  1000000  avgt   15      1241.824 ±   16.873  MB/sec
+ControlBenchmark.syncLong:gc.alloc.rate.norm             256         uniform  20260929  1000000  avgt   15  16034797.683 ±  267.526    B/op
+ControlBenchmark.syncLong:gc.count                       256         uniform  20260929  1000000  avgt   15        63.000             counts
+ControlBenchmark.syncLong:gc.time                        256         uniform  20260929  1000000  avgt   15        27.000                 ms
+ControlBenchmark.syncLong                                256           hot50  20260929  1000000  avgt   15        44.659 ±    0.734   ms/op
+ControlBenchmark.syncLong:gc.alloc.rate                  256           hot50  20260929  1000000  avgt   15       342.430 ±    5.688  MB/sec
+ControlBenchmark.syncLong:gc.alloc.rate.norm             256           hot50  20260929  1000000  avgt   15  16033448.759 ±  312.128    B/op
+ControlBenchmark.syncLong:gc.count                       256           hot50  20260929  1000000  avgt   15        18.000             counts
+ControlBenchmark.syncLong:gc.time                        256           hot50  20260929  1000000  avgt   15        45.000                 ms
+ControlBenchmark.syncLong                                256           hot90  20260929  1000000  avgt   15        87.726 ±   11.043   ms/op
+ControlBenchmark.syncLong:gc.alloc.rate                  256           hot90  20260929  1000000  avgt   15       176.587 ±   22.458  MB/sec
+ControlBenchmark.syncLong:gc.alloc.rate.norm             256           hot90  20260929  1000000  avgt   15  16034920.983 ±  369.963    B/op
+ControlBenchmark.syncLong:gc.count                       256           hot90  20260929  1000000  avgt   15        10.000             counts
+ControlBenchmark.syncLong:gc.time                        256           hot90  20260929  1000000  avgt   15        23.000                 ms
+
+Benchmark result is saved to results-e1/full-20260930T053838Z.qQt9TN/jmh.json

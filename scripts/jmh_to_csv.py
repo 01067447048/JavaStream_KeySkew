@@ -17,7 +17,7 @@ import sys
 from pathlib import Path
 
 SUMMARY_FIELDS = [
-    "run", "method", "size", "cardinality", "distribution", "seed",
+    "run", "method", "size", "cardinality", "distribution", "seed", "variant",
     "score_ms", "error_ms", "ci_low_ms", "ci_high_ms", "samples",
     "elements_per_sec",
     "alloc_bytes_per_op", "alloc_error_bytes_per_op",
@@ -27,11 +27,11 @@ SUMMARY_FIELDS = [
     "pool_parallelism", "jvm_args", "jdk_version", "vm_version", "jmh_version",
 ]
 SECONDARY_FIELDS = [
-    "run", "method", "size", "cardinality", "distribution", "seed",
+    "run", "method", "size", "cardinality", "distribution", "seed", "variant",
     "metric", "unit", "score", "error",
 ]
 RAW_FIELDS = [
-    "run", "method", "size", "cardinality", "distribution", "seed",
+    "run", "method", "size", "cardinality", "distribution", "seed", "variant",
     "metric", "unit", "fork", "iteration", "value",
 ]
 POOL_PROPERTY = "-Djava.util.concurrent.ForkJoinPool.common.parallelism="
@@ -70,6 +70,8 @@ def convert(run_dir):
             "cardinality": int(params["cardinality"]),
             "distribution": params["distribution"],
             "seed": int(params["seed"]),
+            # Extra benchmark parameter (BinHeadBenchmark: position); blank for the others.
+            "variant": params.get("position", ""),
         }
         primary = result["primaryMetric"]
         if primary["scoreUnit"] != "ms/op":

@@ -56,6 +56,11 @@ stage_preflight() {
     command -v javac >/dev/null || die "javac가 없다. JRE가 아니라 JDK를 설치한다."
     command -v python3 >/dev/null || warn "python3가 없어 CSV가 만들어지지 않는다. sudo apt install python3"
     command -v taskset >/dev/null || die "taskset이 없다. sudo apt install util-linux"
+    local jmh_pids
+    if jmh_pids="$(pgrep -f 'org.openjdk.jmh.Main')"; then
+        ps -o pid,stat,etime,command -p "$(echo "$jmh_pids" | paste -sd, -)" | cut -c1-120
+        die "다른 JMH가 실행 중이다(STAT이 T면 Ctrl+Z로 멈춘 것). fg 후 Ctrl+C 하거나 kill <pid>로 끝낸다."
+    fi
 
     local governors no_turbo ac
     governors="$(sort /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor 2>/dev/null | uniq -c | xargs)"

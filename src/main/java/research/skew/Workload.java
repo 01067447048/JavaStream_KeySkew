@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.SplittableRandom;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.LongAdder;
 import java.util.function.Function;
 import java.util.stream.Collector;
@@ -89,6 +91,69 @@ public final class Workload {
                 Collectors.groupingByConcurrent(Function.identity(), CONCURRENT_COUNTING));
     }
 
+    // E1 2x2 control: per-key synchronized (downstream not CONCURRENT) x counter layout.
+    //   synchronized + single cell : Collectors.counting()     (stock, parallelConcurrent)
+    //   synchronized + striped     : SYNC_ADDER_COUNTING       (UNORDERED only -> JDK adds the lock)
+    //   no lock      + single cell : ATOMIC_COUNTING           (CONCURRENT, one AtomicLong per key)
+    //   no lock      + striped     : CONCURRENT_COUNTING       (the LongAdder control)
+    // "no lock" = no per-key synchronized; the ConcurrentHashMap bin lock can still apply (11절).
+    static final Collector<Key, LongAdder, Long> SYNC_ADDER_COUNTING = Collector.of(
+            LongAdder::new,
+            (adder, key) -> adder.increment(),
+            (left, right) -> { left.add(right.sum()); return left; },
+            LongAdder::sum,
+            Collector.Characteristics.UNORDERED);
+
+    static final Collector<Key, AtomicLong, Long> ATOMIC_COUNTING = Collector.of(
+            AtomicLong::new,
+            (counter, key) -> counter.incrementAndGet(),
+            (left, right) -> { left.addAndGet(right.get()); return left; },
+            AtomicLong::get,
+            Collector.Characteristics.CONCURRENT, Collector.Characteristics.UNORDERED);
+
+    // AstraReview2 5.2: same AtomicLong accumulator as ATOMIC_COUNTING, only CONCURRENT removed,
+    // so syncAtomic vs casAtomic changes the per-key synchronized block and nothing else.
+    static final Collector<Key, AtomicLong, Long> SYNC_ATOMIC_COUNTING = Collector.of(
+            AtomicLong::new,
+            (counter, key) -> counter.incrementAndGet(),
+            (left, right) -> { left.addAndGet(right.get()); return left; },
+            AtomicLong::get,
+            Collector.Characteristics.UNORDERED);
+
+    public static Map<Key, Long> parallelConcurrentSyncAtomic(Key[] input) {
+        return Arrays.stream(input).parallel().collect(
+                Collectors.groupingByConcurrent(Function.identity(), SYNC_ATOMIC_COUNTING));
+    }
+
+    public static Map<Key, Long> parallelConcurrentSyncAdder(Key[] input) {
+        return Arrays.stream(input).parallel().collect(
+                Collectors.groupingByConcurrent(Function.identity(), SYNC_ADDER_COUNTING));
+    }
+
+    public static Map<Key, Long> parallelConcurrentAtomic(Key[] input) {
+        return Arrays.stream(input).parallel().collect(
+                Collectors.groupingByConcurrent(Function.identity(), ATOMIC_COUNTING));
+    }
+
+    // E0 (결과분석표 11절): with a default-sized map, parallel inserts can leave the table
+    // smaller than K, so Key(0) (hash 0) may share bin 0 and sit behind another key; then
+    // ConcurrentHashMap.computeIfAbsent skips its lock-free first-node check and locks the bin.
+    // new ConcurrentHashMap<>(4K) allocates tableSizeFor(4K + 2K + 1) = 8K bins for K a power
+    // of two, so Key(0) is alone in bin 0 and the K keys (< 0.75 * 8K) never trigger a resize.
+    public static int presizedCapacity(int cardinality) {
+        return 4 * cardinality;
+    }
+
+    public static Map<Key, Long> parallelConcurrentPresized(Key[] input, int initialCapacity) {
+        return Arrays.stream(input).parallel().collect(Collectors.groupingByConcurrent(
+                Function.identity(), () -> new ConcurrentHashMap<>(initialCapacity), Collectors.counting()));
+    }
+
+    public static Map<Key, Long> parallelConcurrentAdderPresized(Key[] input, int initialCapacity) {
+        return Arrays.stream(input).parallel().collect(Collectors.groupingByConcurrent(
+                Function.identity(), () -> new ConcurrentHashMap<>(initialCapacity), CONCURRENT_COUNTING));
+    }
+
     /** Same rule as generate(): every key must appear, even under hot90. */
     public static boolean isValid(int size, int cardinality) {
         return cardinality >= 2 && size >= cardinality
@@ -111,5 +176,11 @@ public final class Workload {
         if (!expectedMap.equals(parallelMerge(input.keys()))) throw new AssertionError("Parallel merge mismatch");
         if (!expectedMap.equals(parallelConcurrent(input.keys()))) throw new AssertionError("Concurrent mismatch");
         if (!expectedMap.equals(parallelConcurrentAdder(input.keys()))) throw new AssertionError("Concurrent adder mismatch");
+        int capacity = presizedCapacity(actualCounts.length);
+        if (!expectedMap.equals(parallelConcurrentPresized(input.keys(), capacity))) throw new AssertionError("Presized concurrent mismatch");
+        if (!expectedMap.equals(parallelConcurrentAdderPresized(input.keys(), capacity))) throw new AssertionError("Presized adder mismatch");
+        if (!expectedMap.equals(parallelConcurrentSyncAdder(input.keys()))) throw new AssertionError("Synchronized adder mismatch");
+        if (!expectedMap.equals(parallelConcurrentAtomic(input.keys()))) throw new AssertionError("Atomic counter mismatch");
+        if (!expectedMap.equals(parallelConcurrentSyncAtomic(input.keys()))) throw new AssertionError("Synchronized atomic mismatch");
     }
 }
